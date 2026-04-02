@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgroKuia — Tecnologia ao Serviço da Agricultura Angolana</title>
-  <meta name="description" content="AgroKuia é uma aplicação móvel com inteligência artificial que ajuda agricultores angolanos a detectar doenças nas culturas, consultar previsões meteorológicas e aceder a informações agrícolas essenciais.">
-  <meta property="og:title" content="AgroKuia — Tecnologia ao Serviço da Agricultura Angolana">
-  <meta property="og:description" content="Aplicação móvel com IA para agricultores angolanos. Detecte doenças, consulte o clima e aumente a sua produtividade.">
+  <title>AgroKuia — A Primeira Startup AgriTech de Angola</title>
+  <meta name="description" content="AgroKuia é a primeira plataforma angolana de inteligência artificial agrícola. Dados locais, soluções locais, feita por angolanos para angolanos.">
+  <meta property="og:title" content="AgroKuia — A Primeira Startup AgriTech de Angola">
+  <meta property="og:description" content="Plataforma de IA agrícola com dados angolanos. Detecte doenças, consulte o clima e aumente a produtividade.">
   <meta property="og:image" content="assets/banner.jpeg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.agrokuia.com">
   <link rel="icon" type="image/png" href="assets/logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #1B7A3D;
@@ -50,95 +50,140 @@
     .btn-nav { background: var(--primary); color: var(--white) !important; padding: 9px 22px; border-radius: 100px; font-weight: 600; transition: background 0.2s, transform 0.2s; }
     .btn-nav:hover { background: var(--primary-dark); transform: translateY(-1px); }
     .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-    .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: var(--foreground); margin: 6px 0; transition: all 0.3s; }
+    .mobile-menu-btn span { display: block; width: 22px; height: 2px; background: var(--foreground); margin: 5px 0; border-radius: 2px; }
+
+    /* SHARED */
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section-label { display: inline-block; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); margin-bottom: 12px; }
+    .section-title { font-size: 40px; font-weight: 800; letter-spacing: -1px; line-height: 1.15; margin-bottom: 16px; }
+    .section-subtitle { font-size: 17px; color: var(--muted); max-width: 700px; line-height: 1.7; margin-bottom: 48px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--primary); color: var(--white); padding: 14px 32px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.2s; border: none; cursor: pointer; }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(27,122,61,0.25); }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--primary); padding: 14px 32px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 15px; border: 2px solid var(--border); transition: all 0.2s; }
+    .btn-secondary:hover { border-color: var(--primary); background: var(--surface); }
 
     /* HERO */
-    .hero { padding: 160px 24px 80px; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 70% 20%, rgba(27,122,61,0.06) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(46,204,113,0.04) 0%, transparent 50%); pointer-events: none; }
-    .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); padding: 6px 16px; border-radius: 100px; font-size: 13px; font-weight: 500; color: var(--primary); margin-bottom: 24px; }
-    .hero-badge::before { content: ''; width: 8px; height: 8px; background: var(--success); border-radius: 50%; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-    .hero h1 { font-size: 48px; font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; color: var(--foreground); margin-bottom: 20px; }
-    .hero h1 .highlight { color: var(--primary); }
-    .hero-description { font-size: 17px; color: var(--muted); line-height: 1.7; margin-bottom: 36px; max-width: 520px; }
-    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: var(--white); padding: 14px 28px; border-radius: 100px; font-size: 15px; font-weight: 600; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; }
-    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(27,122,61,0.25); }
-    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--primary); padding: 14px 28px; border-radius: 100px; font-size: 15px; font-weight: 600; text-decoration: none; border: 2px solid var(--border); transition: all 0.2s; }
-    .btn-secondary:hover { border-color: var(--primary); background: var(--surface); transform: translateY(-2px); }
-    .hero-image img { width: 100%; border-radius: 24px; box-shadow: 0 20px 60px rgba(27,122,61,0.12); }
-    .hero-stats { display: flex; gap: 40px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
-    .hero-stat-number { font-size: 28px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
-    .hero-stat-label { font-size: 13px; color: var(--muted); font-weight: 500; margin-top: 2px; }
+    .hero { padding: 160px 24px 80px; background: linear-gradient(180deg, var(--surface) 0%, var(--background) 100%); }
+    .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(27,122,61,0.1); color: var(--primary); padding: 8px 18px; border-radius: 100px; font-size: 13px; font-weight: 600; margin-bottom: 20px; }
+    .hero h1 { font-size: 48px; font-weight: 900; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px; }
+    .hero .highlight { color: var(--primary); }
+    .hero-description { font-size: 17px; color: var(--muted); line-height: 1.7; margin-bottom: 32px; max-width: 520px; }
+    .hero-buttons { display: flex; gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
+    .hero-stats { display: flex; gap: 40px; }
+    .hero-stat-number { font-size: 28px; font-weight: 800; color: var(--primary); }
+    .hero-stat-label { font-size: 13px; color: var(--muted); font-weight: 500; }
+    .hero-image { position: relative; }
+    .hero-image img { width: 100%; border-radius: 24px; box-shadow: 0 20px 60px rgba(27,122,61,0.15); }
 
-    /* SECTIONS */
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-    .section-label { display: inline-block; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); margin-bottom: 16px; }
-    .section-title { font-size: 38px; font-weight: 800; letter-spacing: -1px; line-height: 1.15; margin-bottom: 20px; color: var(--foreground); }
-    .section-subtitle { font-size: 17px; color: var(--muted); max-width: 640px; line-height: 1.7; margin-bottom: 56px; }
+    /* IDENTITY BANNER */
+    .identity { padding: 60px 24px; background: var(--primary); color: var(--white); text-align: center; }
+    .identity-inner { max-width: 900px; margin: 0 auto; }
+    .identity h2 { font-size: 28px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px; }
+    .identity p { font-size: 17px; opacity: 0.9; line-height: 1.7; }
+    .identity-flags { display: flex; justify-content: center; gap: 32px; margin-top: 24px; flex-wrap: wrap; }
+    .identity-flag { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; opacity: 0.9; }
 
     /* PROBLEM */
-    .problem { padding: 100px 24px; background: var(--white); }
-    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-    .problem-card { padding: 36px; background: var(--background); border-radius: 20px; border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; }
-    .problem-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,122,61,0.08); }
-    .problem-icon { width: 56px; height: 56px; background: var(--surface); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 24px; }
-    .problem-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
-    .problem-card p { font-size: 15px; color: var(--muted); line-height: 1.6; }
-    .problem-stat { font-size: 32px; font-weight: 800; color: var(--error); margin-bottom: 8px; }
+    .problem { padding: 100px 24px; background: var(--background); }
+    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .problem-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 36px 28px; transition: transform 0.2s, box-shadow 0.2s; }
+    .problem-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+    .problem-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; background: #FEF2F2; }
+    .problem-stat { font-size: 36px; font-weight: 800; color: var(--error); margin-bottom: 8px; }
+    .problem-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .problem-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    /* SOLUTIONS */
+    .solutions { padding: 100px 24px; background: var(--surface); }
+    .solutions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .solution-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 36px 28px; }
+    .solution-card .sol-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; background: var(--surface); }
+    .solution-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .solution-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .solution-card .sol-tag { display: inline-block; margin-top: 12px; font-size: 12px; font-weight: 600; color: var(--primary); background: var(--surface); padding: 4px 12px; border-radius: 100px; }
 
     /* FEATURES */
     .features { padding: 100px 24px; background: var(--background); }
-    .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    .feature-card { padding: 40px; background: var(--white); border-radius: 20px; border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; }
-    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,122,61,0.08); }
-    .feature-card.featured { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); border: none; }
-    .feature-card.featured h3, .feature-card.featured p { color: var(--white); }
-    .feature-card.featured p { opacity: 0.85; }
-    .feature-icon { width: 48px; height: 48px; background: var(--surface); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 22px; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .feature-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 32px 24px; transition: transform 0.2s; }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+    .feature-card.featured { grid-column: span 3; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; background: var(--primary); color: var(--white); align-items: center; }
+    .feature-card.featured p { color: rgba(255,255,255,0.85); }
+    .feature-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--surface); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
     .feature-card.featured .feature-icon { background: rgba(255,255,255,0.15); }
-    .feature-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 10px; color: var(--foreground); }
-    .feature-card p { font-size: 15px; color: var(--muted); line-height: 1.6; }
-    .feature-image img { width: 100%; height: 280px; object-fit: cover; border-radius: 16px; }
+    .feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .feature-image img { width: 100%; border-radius: 16px; }
 
     /* HOW IT WORKS */
-    .how-it-works { padding: 100px 24px; background: var(--white); }
-    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 56px; }
-    .step { text-align: center; }
-    .step-number { width: 64px; height: 64px; background: var(--surface); border: 2px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; color: var(--primary); margin: 0 auto 20px; }
-    .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .how-it-works { padding: 100px 24px; background: var(--surface); }
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .step { text-align: center; padding: 32px 20px; }
+    .step-number { width: 56px; height: 56px; border-radius: 50%; background: var(--primary); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800; margin: 0 auto 20px; }
+    .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
     .step p { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
     /* IMPACT */
-    .impact { padding: 100px 24px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); }
-    .impact .section-label { color: rgba(255,255,255,0.7); }
-    .impact .section-title { color: var(--white); }
-    .impact .section-subtitle { color: rgba(255,255,255,0.8); }
-    .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-    .impact-card { text-align: center; padding: 32px; background: rgba(255,255,255,0.1); border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); }
-    .impact-number { font-size: 44px; font-weight: 800; letter-spacing: -1px; margin-bottom: 4px; }
-    .impact-label { font-size: 14px; opacity: 0.8; font-weight: 500; }
+    .impact { padding: 100px 24px; background: var(--background); }
+    .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .impact-card { text-align: center; padding: 40px 20px; background: var(--white); border: 1px solid var(--border); border-radius: 16px; }
+    .impact-number { font-size: 40px; font-weight: 900; color: var(--primary); margin-bottom: 4px; }
+    .impact-label { font-size: 14px; color: var(--muted); font-weight: 500; }
+
+    /* CEO VISION */
+    .ceo-vision { padding: 100px 24px; background: var(--foreground); color: var(--white); }
+    .ceo-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 350px 1fr; gap: 60px; align-items: start; }
+    .ceo-photo { position: relative; }
+    .ceo-photo img { width: 100%; border-radius: 20px; aspect-ratio: 3/4; object-fit: cover; }
+    .ceo-photo .ceo-name { margin-top: 20px; }
+    .ceo-photo .ceo-name h3 { font-size: 24px; font-weight: 700; }
+    .ceo-photo .ceo-name p { font-size: 15px; color: var(--primary-light); font-weight: 600; }
+    .ceo-content { }
+    .ceo-content .section-label { color: var(--primary-light); }
+    .ceo-content h2 { font-size: 36px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 28px; line-height: 1.2; }
+    .ceo-qa { margin-bottom: 28px; }
+    .ceo-qa .question { font-size: 15px; font-weight: 700; color: var(--primary-light); margin-bottom: 8px; }
+    .ceo-qa .answer { font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.8; }
+    .ceo-quote { padding: 24px 28px; background: rgba(27,122,61,0.2); border-left: 4px solid var(--primary-light); border-radius: 0 12px 12px 0; font-size: 18px; font-style: italic; line-height: 1.7; margin-top: 32px; color: rgba(255,255,255,0.95); }
+
+    /* CULTURE */
+    .culture { padding: 100px 24px; background: var(--surface); }
+    .culture-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .culture-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 36px 28px; text-align: center; }
+    .culture-card .culture-emoji { font-size: 40px; margin-bottom: 16px; }
+    .culture-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .culture-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
 
     /* PARTNERS */
     .partners { padding: 100px 24px; background: var(--background); }
-    .partners-text { text-align: center; max-width: 700px; margin: 0 auto 56px; }
     .partner-types { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .partner-card { padding: 36px; background: var(--white); border-radius: 20px; border: 1px solid var(--border); text-align: center; }
-    .partner-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
-    .partner-card p { font-size: 15px; color: var(--muted); line-height: 1.6; }
-    .partner-icon { font-size: 36px; margin-bottom: 16px; }
+    .partner-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 36px 28px; text-align: center; transition: transform 0.2s; }
+    .partner-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+    .partner-icon { margin-bottom: 20px; }
+    .partner-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .partner-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
 
-    /* ABOUT */
-    .about { padding: 100px 24px; background: var(--white); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
-    .about-image { background: var(--surface); border-radius: 24px; padding: 48px; text-align: center; }
-    .about-image img { width: 200px; height: 200px; border-radius: 20px; object-fit: cover; }
-    .about-name { font-size: 24px; font-weight: 700; margin-top: 20px; }
-    .about-role { font-size: 16px; color: var(--primary); font-weight: 600; margin-top: 4px; }
-    .about-content h2 { font-size: 36px; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.5px; }
-    .about-content p { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
-    .about-content blockquote { padding: 24px; background: var(--surface); border-left: 4px solid var(--primary); border-radius: 0 12px 12px 0; font-style: italic; color: var(--foreground); font-size: 17px; line-height: 1.7; margin-top: 24px; }
+    /* CONTACT DEPARTMENTS */
+    .departments { padding: 100px 24px; background: var(--surface); }
+    .dept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .dept-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; text-align: center; transition: transform 0.2s; }
+    .dept-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    .dept-card .dept-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--surface); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+    .dept-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .dept-card p { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+    .dept-card a { font-size: 14px; color: var(--primary); font-weight: 600; text-decoration: none; }
+    .dept-card a:hover { text-decoration: underline; }
+
+    /* FAQ */
+    .faq { padding: 100px 24px; background: var(--background); }
+    .faq-list { max-width: 800px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-question { width: 100%; background: none; border: none; padding: 24px 0; font-size: 17px; font-weight: 600; color: var(--foreground); text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; }
+    .faq-question::after { content: '+'; font-size: 24px; color: var(--primary); font-weight: 300; transition: transform 0.2s; }
+    .faq-item.open .faq-question::after { content: '-'; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-answer p { padding: 0 0 24px; font-size: 15px; color: var(--muted); line-height: 1.7; }
 
     /* CTA */
     .cta { padding: 100px 24px; background: var(--background); text-align: center; }
@@ -150,13 +195,19 @@
     /* FOOTER */
     .footer { padding: 60px 24px 32px; background: var(--foreground); color: rgba(255,255,255,0.7); }
     .footer-inner { max-width: 1200px; margin: 0 auto; }
-    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); }
     .footer-brand img { width: 40px; height: 40px; border-radius: 10px; margin-bottom: 16px; }
     .footer-brand p { font-size: 14px; line-height: 1.7; max-width: 300px; }
     .footer-col h4 { color: var(--white); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
     .footer-col a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; padding: 4px 0; transition: color 0.2s; }
     .footer-col a:hover { color: var(--primary-light); }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; font-size: 13px; }
+    .footer-social { display: flex; gap: 16px; }
+    .footer-social a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--primary-light); }
+
+    /* COUNTER ANIMATION */
+    .counter { display: inline-block; }
 
     /* RESPONSIVE */
     @media (max-width: 968px) {
@@ -166,11 +217,13 @@
       .hero-buttons { justify-content: center; }
       .hero-stats { justify-content: center; }
       .hero-image { order: -1; max-width: 500px; margin: 0 auto; }
-      .problem-grid, .partner-types { grid-template-columns: 1fr; }
+      .problem-grid, .partner-types, .culture-grid, .solutions-grid { grid-template-columns: 1fr; }
       .features-grid { grid-template-columns: 1fr; }
       .feature-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
       .steps-grid, .impact-grid { grid-template-columns: repeat(2, 1fr); }
-      .about-grid { grid-template-columns: 1fr; text-align: center; }
+      .ceo-grid { grid-template-columns: 1fr; text-align: center; }
+      .ceo-photo { max-width: 300px; margin: 0 auto; }
+      .dept-grid { grid-template-columns: 1fr 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; }
       .navbar-links { display: none; }
       .mobile-menu-btn { display: block; }
@@ -181,8 +234,10 @@
       .cta h2 { font-size: 28px; }
       .steps-grid, .impact-grid { grid-template-columns: 1fr; }
       .hero-stats { flex-direction: column; gap: 20px; align-items: center; }
+      .dept-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      .ceo-content h2 { font-size: 28px; }
     }
   </style>
 </head>
@@ -204,11 +259,11 @@
       </a>
       <ul class="navbar-links">
         <li><a href="#problema" data-i18n="nav_problem">O Problema</a></li>
+        <li><a href="#solucoes" data-i18n="nav_solutions">Soluções</a></li>
         <li><a href="#funcionalidades" data-i18n="nav_features">Funcionalidades</a></li>
-        <li><a href="#como-funciona" data-i18n="nav_how">Como Funciona</a></li>
-        <li><a href="#impacto" data-i18n="nav_impact">Impacto</a></li>
-        <li><a href="#sobre" data-i18n="nav_about">Sobre Nós</a></li>
-        <li><a href="#contacto" class="btn-nav" data-i18n="nav_contact">Contacte-nos</a></li>
+        <li><a href="#visao" data-i18n="nav_vision">Visão do CEO</a></li>
+        <li><a href="#contacto" data-i18n="nav_contact">Departamentos</a></li>
+        <li><a href="#download" class="btn-nav" data-i18n="nav_download">Descarregar</a></li>
       </ul>
       <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -220,21 +275,21 @@
   <section class="hero" id="inicio">
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-badge" data-i18n="hero_badge">Projecto Piloto em Benguela</div>
-        <h1 data-i18n="hero_title">Tecnologia ao <span class="highlight">Serviço</span> da Agricultura Angolana</h1>
-        <p class="hero-description" data-i18n="hero_desc">AgroKuia utiliza inteligência artificial para ajudar agricultores a detectar doenças nas culturas, consultar previsões meteorológicas e tomar decisões informadas — tudo a partir do telemóvel.</p>
+        <div class="hero-badge" data-i18n="hero_badge">A Primeira Startup AgriTech de Angola</div>
+        <h1 data-i18n="hero_title">Dados Angolanos. Soluções Angolanas. <span class="highlight">Feita para Angola.</span></h1>
+        <p class="hero-description" data-i18n="hero_desc">AgroKuia é a primeira plataforma de inteligência artificial agrícola construída com dados locais das 18 províncias. Diagnóstico de doenças, previsão meteorológica e assistência técnica — tudo no telemóvel, mesmo sem internet.</p>
         <div class="hero-buttons">
           <a href="#download" class="btn-primary">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             <span data-i18n="hero_btn_download">Descarregar App</span>
           </a>
-          <a href="#funcionalidades" class="btn-secondary">
-            <span data-i18n="hero_btn_learn">Saber Mais</span>
+          <a href="#solucoes" class="btn-secondary">
+            <span data-i18n="hero_btn_learn">Ver Soluções</span>
           </a>
         </div>
         <div class="hero-stats">
           <div class="hero-stat">
-            <div class="hero-stat-number">2.5M+</div>
+            <div class="hero-stat-number counter" data-target="2500000">2.5M+</div>
             <div class="hero-stat-label" data-i18n="stat_farmers">Agricultores em Angola</div>
           </div>
           <div class="hero-stat">
@@ -242,8 +297,8 @@
             <div class="hero-stat-label" data-i18n="stat_losses">Perdas por doenças</div>
           </div>
           <div class="hero-stat">
-            <div class="hero-stat-number">85%</div>
-            <div class="hero-stat-label" data-i18n="stat_no_access">Sem acesso a assistência</div>
+            <div class="hero-stat-number">0</div>
+            <div class="hero-stat-label" data-i18n="stat_no_apps">Apps AgriTech antes da AgroKuia</div>
           </div>
         </div>
       </div>
@@ -253,30 +308,79 @@
     </div>
   </section>
 
+  <!-- IDENTITY BANNER -->
+  <section class="identity">
+    <div class="identity-inner">
+      <h2 data-i18n="identity_title">App Angolano. Dados Angolanos. Feito por Angolanos.</h2>
+      <p data-i18n="identity_desc">A AgroKuia não é uma adaptação de uma app estrangeira. Foi construída de raiz com dados das 18 províncias, pragas locais, solos angolanos e as culturas que alimentam o nosso país. Somos a primeira e única startup AgriTech angolana com base de dados 100% local.</p>
+      <div class="identity-flags">
+        <div class="identity-flag"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span data-i18n="id_flag1">Base de dados de 18 províncias</span></div>
+        <div class="identity-flag"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span data-i18n="id_flag2">Funciona 100% offline</span></div>
+        <div class="identity-flag"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span data-i18n="id_flag3">Leitura por voz em Português</span></div>
+        <div class="identity-flag"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span data-i18n="id_flag4">Aberta a parcerias institucionais</span></div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROBLEM -->
   <section class="problem" id="problema">
     <div class="section-inner">
       <span class="section-label" data-i18n="problem_label">O Desafio</span>
       <h2 class="section-title" data-i18n="problem_title">A agricultura angolana enfrenta desafios críticos</h2>
-      <p class="section-subtitle" data-i18n="problem_subtitle">Angola importa mais de 50% dos alimentos que consome, apesar de ter um enorme potencial agrícola. Os pequenos agricultores enfrentam barreiras que limitam a sua produtividade.</p>
+      <p class="section-subtitle" data-i18n="problem_subtitle">Angola importa mais de 50% dos alimentos que consome, apesar de ter 58 milhões de hectares de terra arável. Os pequenos agricultores — 90% do sector — enfrentam barreiras que limitam a sua produtividade.</p>
       <div class="problem-grid">
         <div class="problem-card">
           <div class="problem-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
           <div class="problem-stat">40%</div>
           <h3 data-i18n="problem1_title">Perdas nas Colheitas</h3>
-          <p data-i18n="problem1_desc">Doenças e pragas destroem até 40% das colheitas por falta de diagnóstico atempado e acesso a informação técnica.</p>
+          <p data-i18n="problem1_desc">Doenças e pragas destroem até 40% das colheitas por falta de diagnóstico atempado. Fonte: FAO/WFP Angola, 2024.</p>
         </div>
         <div class="problem-card">
-          <div class="problem-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8A317" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+          <div class="problem-icon" style="background: #FEF3C7;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8A317" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
           <div class="problem-stat" style="color: var(--warning);">85%</div>
           <h3 data-i18n="problem2_title">Sem Assistência Técnica</h3>
-          <p data-i18n="problem2_desc">A maioria dos agricultores não tem acesso a extensionistas rurais nem a informação sobre boas práticas agrícolas.</p>
+          <p data-i18n="problem2_desc">A maioria dos agricultores não tem acesso a extensionistas rurais. Angola tem menos de 1 técnico por 5.000 agricultores.</p>
         </div>
         <div class="problem-card">
-          <div class="problem-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <div class="problem-stat" style="color: var(--primary);">50%+</div>
-          <h3 data-i18n="problem3_title">Dependência de Importações</h3>
-          <p data-i18n="problem3_desc">Angola importa mais de metade dos alimentos, representando uma oportunidade enorme para aumentar a produção local.</p>
+          <div class="problem-icon" style="background: var(--surface);"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="problem-stat" style="color: var(--primary);">$5B+</div>
+          <h3 data-i18n="problem3_title">Importações Alimentares</h3>
+          <p data-i18n="problem3_desc">Angola gasta mais de 5 mil milhões USD/ano em importações alimentares. Dinheiro que podia ficar no país. Fonte: Banco Mundial, 2024.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="solutions" id="solucoes">
+    <div class="section-inner">
+      <span class="section-label" data-i18n="solutions_label">As Nossas Soluções</span>
+      <h2 class="section-title" data-i18n="solutions_title">Tecnologia que resolve problemas reais</h2>
+      <p class="section-subtitle" data-i18n="solutions_subtitle">Cada funcionalidade da AgroKuia foi desenhada para resolver um problema específico dos agricultores angolanos, com dados e contexto local.</p>
+      <div class="solutions-grid">
+        <div class="solution-card">
+          <div class="sol-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <h3 data-i18n="sol1_title">Diagnóstico por IA</h3>
+          <p data-i18n="sol1_desc">Tire uma foto da planta doente. A IA identifica a doença em segundos e recomenda o tratamento correcto para o contexto angolano. Funciona offline.</p>
+          <span class="sol-tag" data-i18n="sol1_tag">Resolve: 40% de perdas</span>
+        </div>
+        <div class="solution-card">
+          <div class="sol-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><path d="M12 2v10l4.5 4.5"/><circle cx="12" cy="12" r="10"/></svg></div>
+          <h3 data-i18n="sol2_title">Previsão Meteorológica Local</h3>
+          <p data-i18n="sol2_desc">Dados meteorológicos por província para planear sementeiras, regas e colheitas. Alertas de chuva, seca e temperatura extrema.</p>
+          <span class="sol-tag" data-i18n="sol2_tag">Resolve: Planeamento cego</span>
+        </div>
+        <div class="solution-card">
+          <div class="sol-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <h3 data-i18n="sol3_title">Biblioteca Agrícola Angolana</h3>
+          <p data-i18n="sol3_desc">Base de dados com culturas, pragas, doenças, fertilizantes e técnicas específicas de Angola. Com leitura por voz para agricultores com dificuldades de leitura.</p>
+          <span class="sol-tag" data-i18n="sol3_tag">Resolve: 85% sem assistência</span>
+        </div>
+        <div class="solution-card">
+          <div class="sol-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+          <h3 data-i18n="sol4_title">Cotações e Marketplace</h3>
+          <p data-i18n="sol4_desc">Preços de mercado actualizados e ligação directa a fornecedores de insumos. O agricultor compra o que precisa sem intermediários.</p>
+          <span class="sol-tag" data-i18n="sol4_tag">Resolve: Acesso a mercado</span>
         </div>
       </div>
     </div>
@@ -286,36 +390,36 @@
   <section class="features" id="funcionalidades">
     <div class="section-inner">
       <span class="section-label" data-i18n="features_label">Funcionalidades</span>
-      <h2 class="section-title" data-i18n="features_title">Tudo o que o agricultor precisa, no seu telemóvel</h2>
-      <p class="section-subtitle" data-i18n="features_subtitle">A AgroKuia combina inteligência artificial com conhecimento agrícola local para oferecer ferramentas práticas e acessíveis.</p>
+      <h2 class="section-title" data-i18n="features_title">Tudo o que o agricultor precisa, no telemóvel</h2>
+      <p class="section-subtitle" data-i18n="features_subtitle">Desenhada para ser usada por qualquer agricultor, mesmo com pouca experiência tecnológica ou dificuldades de leitura.</p>
       <div class="features-grid">
         <div class="feature-card featured">
           <div>
             <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-            <h3 data-i18n="feat1_title">Detecção de Doenças por IA</h3>
-            <p data-i18n="feat1_desc">Tire uma foto da sua planta e a nossa inteligência artificial identifica doenças e pragas em segundos, com recomendações de tratamento personalizadas para o contexto angolano.</p>
+            <h3 data-i18n="feat1_title">Detecção de Doenças por Inteligência Artificial</h3>
+            <p data-i18n="feat1_desc">Tire uma foto da sua planta e a inteligência artificial identifica doenças e pragas em segundos, com recomendações de tratamento personalizadas para o contexto angolano. Funciona completamente offline — sem necessidade de internet.</p>
           </div>
           <div class="feature-image"><img src="assets/digital-farm.jpg" alt="AI Detection"></div>
         </div>
         <div class="feature-card">
-          <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><path d="M12 2v10l4.5 4.5"/><circle cx="12" cy="12" r="10"/></svg></div>
-          <h3 data-i18n="feat2_title">Previsão Meteorológica</h3>
-          <p data-i18n="feat2_desc">Dados meteorológicos localizados para planear sementeiras, regas e colheitas com precisão.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-          <h3 data-i18n="feat3_title">Biblioteca Agrícola</h3>
-          <p data-i18n="feat3_desc">Base de dados completa de culturas, doenças, fertilizantes e técnicas adaptadas a Angola.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
-          <h3 data-i18n="feat4_title">Cotações de Mercado</h3>
-          <p data-i18n="feat4_desc">Preços actualizados de produtos agrícolas para vender na melhor altura e maximizar lucros.</p>
+          <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg></div>
+          <h3 data-i18n="feat2_title">Leitura por Voz (TTS)</h3>
+          <p data-i18n="feat2_desc">Todos os diagnósticos e recomendações são lidos em voz alta em Português. Acessível para agricultores com dificuldades de leitura.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3 data-i18n="feat5_title">Pecuária Integrada</h3>
-          <p data-i18n="feat5_desc">Gestão de gado e animais com informações sobre saúde animal, vacinação e melhores práticas.</p>
+          <h3 data-i18n="feat3_title">Pecuária Integrada</h3>
+          <p data-i18n="feat3_desc">Gestão de gado com informações sobre saúde animal, vacinação e melhores práticas adaptadas à realidade angolana.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <h3 data-i18n="feat4_title">Multi-plataforma</h3>
+          <p data-i18n="feat4_desc">Disponível para Android, iOS e Web. Acesso a partir de qualquer dispositivo, em qualquer lugar de Angola.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h3 data-i18n="feat5_title">Dashboard para Instituições</h3>
+          <p data-i18n="feat5_desc">Painel de dados em tempo real para cooperativas, ONGs e governo. Mapa epidemiológico de pragas e doenças por região.</p>
         </div>
       </div>
     </div>
@@ -325,13 +429,13 @@
   <section class="how-it-works" id="como-funciona">
     <div class="section-inner">
       <span class="section-label" data-i18n="how_label">Como Funciona</span>
-      <h2 class="section-title" data-i18n="how_title">Simples, rápido e acessível</h2>
-      <p class="section-subtitle" data-i18n="how_subtitle">Desenhado para ser usado por qualquer agricultor, mesmo com pouca experiência tecnológica.</p>
+      <h2 class="section-title" data-i18n="how_title">3 passos. Sem complicações.</h2>
+      <p class="section-subtitle" data-i18n="how_subtitle">Desenhado para ser usado por qualquer agricultor, mesmo sem experiência tecnológica.</p>
       <div class="steps-grid">
-        <div class="step"><div class="step-number">1</div><h3 data-i18n="step1_title">Descarregue a App</h3><p data-i18n="step1_desc">Disponível para Android no Google Play Store. Instalação gratuita.</p></div>
-        <div class="step"><div class="step-number">2</div><h3 data-i18n="step2_title">Tire uma Foto</h3><p data-i18n="step2_desc">Fotografe a planta ou cultura que quer analisar directamente pela app.</p></div>
-        <div class="step"><div class="step-number">3</div><h3 data-i18n="step3_title">Receba o Diagnóstico</h3><p data-i18n="step3_desc">A IA analisa a imagem e identifica doenças, pragas ou deficiências nutricionais.</p></div>
-        <div class="step"><div class="step-number">4</div><h3 data-i18n="step4_title">Aplique a Solução</h3><p data-i18n="step4_desc">Siga as recomendações de tratamento adaptadas ao contexto angolano.</p></div>
+        <div class="step"><div class="step-number">1</div><h3 data-i18n="step1_title">Descarregue</h3><p data-i18n="step1_desc">Disponível no Google Play Store. Instalação gratuita, sem necessidade de conta.</p></div>
+        <div class="step"><div class="step-number">2</div><h3 data-i18n="step2_title">Fotografe</h3><p data-i18n="step2_desc">Tire uma foto da planta ou animal que quer analisar. A IA faz o resto.</p></div>
+        <div class="step"><div class="step-number">3</div><h3 data-i18n="step3_title">Receba e Aplique</h3><p data-i18n="step3_desc">Diagnóstico instantâneo com tratamento recomendado. Lido em voz alta se preferir.</p></div>
+        <div class="step"><div class="step-number" style="background: var(--primary-light);">+</div><h3 data-i18n="step4_title">Sem Internet? Sem Problema.</h3><p data-i18n="step4_desc">Toda a base de dados está no telemóvel. Funciona 100% offline nas zonas rurais.</p></div>
       </div>
     </div>
   </section>
@@ -340,13 +444,93 @@
   <section class="impact" id="impacto">
     <div class="section-inner">
       <span class="section-label" data-i18n="impact_label">Impacto</span>
-      <h2 class="section-title" data-i18n="impact_title">Transformar a agricultura angolana</h2>
-      <p class="section-subtitle" data-i18n="impact_subtitle">A AgroKuia tem o potencial de impactar milhões de agricultores e contribuir para a segurança alimentar de Angola.</p>
+      <h2 class="section-title" data-i18n="impact_title">Números que importam</h2>
+      <p class="section-subtitle" data-i18n="impact_subtitle">A AgroKuia tem o potencial de transformar a agricultura angolana e contribuir para a segurança alimentar do país.</p>
       <div class="impact-grid">
-        <div class="impact-card"><div class="impact-number">2.5M+</div><div class="impact-label" data-i18n="impact1">Agricultores potenciais</div></div>
+        <div class="impact-card"><div class="impact-number">58M</div><div class="impact-label" data-i18n="impact1">Hectares de terra arável</div></div>
         <div class="impact-card"><div class="impact-number">$3.2B</div><div class="impact-label" data-i18n="impact2">Mercado agrícola angolano</div></div>
-        <div class="impact-card"><div class="impact-number">18</div><div class="impact-label" data-i18n="impact3">Províncias de Angola</div></div>
+        <div class="impact-card"><div class="impact-number">18</div><div class="impact-label" data-i18n="impact3">Províncias cobertas</div></div>
         <div class="impact-card"><div class="impact-number">30%+</div><div class="impact-label" data-i18n="impact4">Redução de perdas prevista</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CEO VISION -->
+  <section class="ceo-vision" id="visao">
+    <div class="ceo-grid">
+      <div class="ceo-photo">
+        <img src="assets/ceo-bernardo.jpg" alt="Bernardo Sebastião, CEO da AgroKuia">
+        <div class="ceo-name">
+          <h3>Bernardo Sebastião</h3>
+          <p data-i18n="ceo_role">Fundador & CEO — AgroKuia / AMAMBELE, LDA</p>
+        </div>
+      </div>
+      <div class="ceo-content">
+        <span class="section-label" data-i18n="ceo_label">Visão do CEO</span>
+        <h2 data-i18n="ceo_title">Angola tem tudo para alimentar a si mesma — e ao continente</h2>
+
+        <div class="ceo-qa">
+          <div class="question" data-i18n="ceo_q1">Porque criou a AgroKuia?</div>
+          <div class="answer" data-i18n="ceo_a1">Cresci a ver a agricultura angolana com um potencial enorme e quase nenhuma ferramenta tecnológica. Temos 58 milhões de hectares de terra arável, água abundante, sol o ano todo — e mesmo assim importamos mais de metade do que comemos. A AgroKuia nasceu para mudar isso. Não com soluções importadas, mas com tecnologia feita aqui, com os nossos dados, para os nossos agricultores.</div>
+        </div>
+
+        <div class="ceo-qa">
+          <div class="question" data-i18n="ceo_q2">Qual é a visão para os próximos anos?</div>
+          <div class="answer" data-i18n="ceo_a2">A AgroKuia é o primeiro passo de um ecossistema maior — o AgroX. Imagina uma plataforma onde o agricultor não só diagnostica doenças, mas acede a crédito agrícola, seguro de colheita, formação técnica, e vende directamente ao mercado. Estamos a construir a infraestrutura digital da agricultura angolana. Em 3 anos, quero que a AgroKuia esteja em todas as 18 províncias e a expandir para Moçambique e Guiné-Bissau.</div>
+        </div>
+
+        <div class="ceo-qa">
+          <div class="question" data-i18n="ceo_q3">O que torna a AgroKuia diferente?</div>
+          <div class="answer" data-i18n="ceo_a3">Somos angolanos a resolver problemas angolanos. A nossa base de dados tem pragas de Benguela, solos do Huambo, culturas do Cunene. Nenhuma app importada tem isso. E funciona offline — porque sabemos que nas zonas rurais não há internet. Não estamos a copiar ninguém. Estamos a criar algo que nunca existiu em Angola.</div>
+        </div>
+
+        <div class="ceo-qa">
+          <div class="question" data-i18n="ceo_q4">Que impacto económico pode a AgroKuia ter?</div>
+          <div class="answer" data-i18n="ceo_a4">Se reduzirmos as perdas agrícolas em apenas 15%, estamos a falar de centenas de milhões de dólares que ficam no bolso dos agricultores angolanos. Mas o impacto vai além: criação de emprego no sector tecnológico, redução de importações, dados para políticas públicas, e uma nova geração de jovens angolanos a ver que a agricultura pode ser moderna e rentável. A AgroKuia pode ser o catalisador da transformação agrícola de Angola.</div>
+        </div>
+
+        <div class="ceo-quote" data-i18n="ceo_quote">"A agricultura é a espinha dorsal de Angola. Com a AgroKuia, queremos dar a cada agricultor as ferramentas para produzir mais, perder menos e viver melhor. Não estamos apenas a construir uma app — estamos a construir o futuro da alimentação angolana."</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORPORATE CULTURE -->
+  <section class="culture" id="cultura">
+    <div class="section-inner">
+      <span class="section-label" data-i18n="culture_label">Cultura Empresarial</span>
+      <h2 class="section-title" data-i18n="culture_title">Os nossos valores definem quem somos</h2>
+      <p class="section-subtitle" data-i18n="culture_subtitle">A AgroKuia / AMAMBELE, LDA opera com princípios claros que guiam cada decisão, cada linha de código e cada parceria.</p>
+      <div class="culture-grid">
+        <div class="culture-card">
+          <div class="culture-emoji"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3 data-i18n="val1_title">Angola Primeiro</h3>
+          <p data-i18n="val1_desc">Dados angolanos, problemas angolanos, soluções angolanas. Cada funcionalidade é validada no terreno, com agricultores reais, em províncias reais.</p>
+        </div>
+        <div class="culture-card">
+          <div class="culture-emoji"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3 data-i18n="val2_title">Impacto Social</h3>
+          <p data-i18n="val2_desc">O lucro é consequência do impacto. Cada agricultor que perde menos colheita é uma família que come melhor. Medimos sucesso em vidas transformadas.</p>
+        </div>
+        <div class="culture-card">
+          <div class="culture-emoji"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+          <h3 data-i18n="val3_title">Inovação com Propósito</h3>
+          <p data-i18n="val3_desc">Usamos inteligência artificial não por ser tendência, mas porque resolve problemas reais. Tecnologia de ponta ao serviço de quem mais precisa.</p>
+        </div>
+        <div class="culture-card">
+          <div class="culture-emoji"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <h3 data-i18n="val4_title">Transparência Total</h3>
+          <p data-i18n="val4_desc">Emails corporativos dedicados para cada departamento. Website funcional. Dados verificáveis. Operamos com a transparência que o sector agrícola merece.</p>
+        </div>
+        <div class="culture-card">
+          <div class="culture-emoji"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div>
+          <h3 data-i18n="val5_title">Portas Abertas</h3>
+          <p data-i18n="val5_desc">Abertos a negociações com instituições, cooperativas, ONGs e investidores em todo o território angolano. Parcerias que criam valor para todos.</p>
+        </div>
+        <div class="culture-card">
+          <div class="culture-emoji"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h3 data-i18n="val6_title">Crescimento Sustentável</h3>
+          <p data-i18n="val6_desc">Crescemos com base em resultados reais, não em promessas. Cada expansão é validada por dados e impacto mensurável no terreno.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -354,59 +538,118 @@
   <!-- PARTNERS -->
   <section class="partners" id="parceiros">
     <div class="section-inner">
-      <div class="partners-text">
-        <span class="section-label" data-i18n="partners_label">Parcerias</span>
-        <h2 class="section-title" data-i18n="partners_title">Construir o futuro juntos</h2>
-        <p class="section-subtitle" style="margin: 0 auto 56px;" data-i18n="partners_subtitle">A AgroKuia procura parceiros estratégicos para escalar o impacto em Angola. Oferecemos contratos personalizados e assistência técnica para instituições.</p>
-      </div>
+      <span class="section-label" data-i18n="partners_label">Parcerias</span>
+      <h2 class="section-title" data-i18n="partners_title">Abertos a negociações em todo o território angolano</h2>
+      <p class="section-subtitle" data-i18n="partners_subtitle">A AgroKuia procura parceiros estratégicos para escalar o impacto. Oferecemos contratos personalizados, integração técnica e dados em tempo real para instituições.</p>
       <div class="partner-types">
         <div class="partner-card">
           <div class="partner-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
           <h3 data-i18n="partner1_title">Governo & Instituições</h3>
-          <p data-i18n="partner1_desc">Parcerias com INAPEM, AIPEX e governos provinciais para programas de extensão rural digital.</p>
+          <p data-i18n="partner1_desc">Parcerias com INAPEM, AIPEX, MINAGRIF e governos provinciais para programas de extensão rural digital e certificação de startups.</p>
         </div>
         <div class="partner-card">
           <div class="partner-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
           <h3 data-i18n="partner2_title">Investidores</h3>
-          <p data-i18n="partner2_desc">Oportunidade de investir num mercado de $3.2B com impacto social directo em milhões de famílias.</p>
+          <p data-i18n="partner2_desc">Oportunidade de investir num mercado de $3.2B com impacto social directo. Contacte investors@agrokuia.com para o nosso pitch deck.</p>
         </div>
         <div class="partner-card">
           <div class="partner-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <h3 data-i18n="partner3_title">Cooperativas & ONGs</h3>
-          <p data-i18n="partner3_desc">Integração com cooperativas agrícolas como a UNACA e organizações de desenvolvimento rural.</p>
+          <p data-i18n="partner3_desc">Integração com cooperativas agrícolas como a UNACA e organizações de desenvolvimento rural. Licenciamento institucional disponível.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="about" id="sobre">
+  <!-- DEPARTMENTS / CONTACT -->
+  <section class="departments" id="contacto">
     <div class="section-inner">
-      <div class="about-grid">
-        <div class="about-image">
-          <img src="assets/logo.png" alt="Bernardo Sebastião">
-          <div class="about-name">Bernardo Sebastião</div>
-          <div class="about-role" data-i18n="about_role">Fundador & CEO</div>
+      <span class="section-label" data-i18n="dept_label">Contacte-nos</span>
+      <h2 class="section-title" data-i18n="dept_title">Departamentos com email corporativo dedicado</h2>
+      <p class="section-subtitle" data-i18n="dept_subtitle">A AgroKuia opera com estrutura empresarial profissional. Cada departamento tem um canal de comunicação dedicado para garantir respostas rápidas e especializadas.</p>
+      <div class="dept-grid">
+        <div class="dept-card">
+          <div class="dept-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <h4 data-i18n="dept1_title">Geral / Corporativo</h4>
+          <p data-i18n="dept1_desc">Assuntos gerais e comunicação oficial</p>
+          <a href="mailto:contact@agrokuia.com">contact@agrokuia.com</a>
         </div>
-        <div class="about-content">
-          <span class="section-label" data-i18n="about_label">Sobre Nós</span>
-          <h2 data-i18n="about_title">Uma visão angolana para a agricultura do futuro</h2>
-          <p data-i18n="about_p1">A AgroKuia nasceu da convicção de que a tecnologia pode transformar a agricultura em Angola. Fundada por Bernardo Sebastião, a empresa combina inteligência artificial com conhecimento agrícola local para criar soluções que realmente funcionam no terreno.</p>
-          <p data-i18n="about_p2">Com sede em Angola e projecto piloto em Benguela, a AgroKuia está a construir a ponte entre a inovação tecnológica e os milhões de agricultores que alimentam o país.</p>
-          <blockquote data-i18n="about_quote">"A agricultura é a espinha dorsal de Angola. Com a AgroKuia, queremos dar a cada agricultor as ferramentas para produzir mais, perder menos e viver melhor."</blockquote>
+        <div class="dept-card">
+          <div class="dept-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h4 data-i18n="dept2_title">Investidores</h4>
+          <p data-i18n="dept2_desc">Relações com investidores e pitch deck</p>
+          <a href="mailto:investors@agrokuia.com">investors@agrokuia.com</a>
+        </div>
+        <div class="dept-card">
+          <div class="dept-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <h4 data-i18n="dept3_title">Suporte Técnico</h4>
+          <p data-i18n="dept3_desc">Ajuda com a aplicação e problemas técnicos</p>
+          <a href="mailto:support@agrokuia.com">support@agrokuia.com</a>
+        </div>
+        <div class="dept-card">
+          <div class="dept-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+          <h4 data-i18n="dept4_title">Informações</h4>
+          <p data-i18n="dept4_desc">Informações gerais sobre a AgroKuia</p>
+          <a href="mailto:info@agrokuia.com">info@agrokuia.com</a>
+        </div>
+        <div class="dept-card">
+          <div class="dept-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <h4 data-i18n="dept5_title">Jurídico</h4>
+          <p data-i18n="dept5_desc">Assuntos legais e contratos</p>
+          <a href="mailto:legal@agrokuia.com">legal@agrokuia.com</a>
+        </div>
+        <div class="dept-card">
+          <div class="dept-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B7A3D" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h4 data-i18n="dept6_title">Desenvolvimento</h4>
+          <p data-i18n="dept6_desc">Equipa técnica e integrações</p>
+          <a href="mailto:dev@agrokuia.com">dev@agrokuia.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="section-inner">
+      <span class="section-label" data-i18n="faq_label">Perguntas Frequentes</span>
+      <h2 class="section-title" data-i18n="faq_title">Tudo o que precisa saber</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" data-i18n="faq1_q">A AgroKuia funciona sem internet?</button>
+          <div class="faq-answer"><p data-i18n="faq1_a">Sim. Toda a base de dados de doenças, pragas, culturas e tratamentos está armazenada localmente no telemóvel. O diagnóstico por IA funciona 100% offline. Apenas funcionalidades como previsão meteorológica e cotações de mercado necessitam de ligação à internet.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" data-i18n="faq2_q">A app é gratuita?</button>
+          <div class="faq-answer"><p data-i18n="faq2_a">Sim, a versão base é completamente gratuita. Inclui diagnóstico de doenças, biblioteca agrícola e leitura por voz. Funcionalidades premium para instituições e empresas estão disponíveis mediante licenciamento.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" data-i18n="faq3_q">Que culturas a AgroKuia cobre?</button>
+          <div class="faq-answer"><p data-i18n="faq3_a">A base de dados inclui as principais culturas angolanas: milho, mandioca, feijão, batata-doce, banana, tomate, cebola, amendoim, soja, arroz, entre outras. A lista é actualizada regularmente com novas culturas e doenças.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" data-i18n="faq4_q">Como posso fazer parceria com a AgroKuia?</button>
+          <div class="faq-answer"><p data-i18n="faq4_a">Contacte-nos através de contact@agrokuia.com ou investors@agrokuia.com. Estamos abertos a parcerias com instituições governamentais, cooperativas, ONGs, empresas agrícolas e investidores em todo o território angolano.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" data-i18n="faq5_q">A AgroKuia está disponível em que províncias?</button>
+          <div class="faq-answer"><p data-i18n="faq5_a">A base de dados cobre as 18 províncias de Angola. O projecto piloto está a decorrer em Benguela, com expansão planeada para Huambo, Huíla e Bié em 2026-2027.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" data-i18n="faq6_q">Que empresa está por trás da AgroKuia?</button>
+          <div class="faq-answer"><p data-i18n="faq6_a">A AgroKuia é desenvolvida pela AMAMBELE, LDA — empresa angolana em processo de constituição formal. A empresa opera com estrutura profissional, emails corporativos dedicados por departamento, website funcional e presença activa no LinkedIn.</p></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta" id="contacto">
+  <section class="cta" id="download">
     <div class="cta-inner">
       <span class="section-label" data-i18n="cta_label">Comece Agora</span>
       <h2 data-i18n="cta_title">Pronto para transformar a sua agricultura?</h2>
-      <p data-i18n="cta_desc">Descarregue a AgroKuia gratuitamente e junte-se aos agricultores que já estão a usar inteligência artificial para proteger as suas colheitas.</p>
-      <div class="cta-buttons" id="download">
-        <a href="https://play.google.com/store/apps/details?id=space.manus.agrokuia" class="btn-primary" target="_blank">
+      <p data-i18n="cta_desc">Descarregue a AgroKuia gratuitamente e junte-se à revolução AgriTech angolana. A primeira app de inteligência artificial agrícola feita em Angola, para Angola.</p>
+      <div class="cta-buttons">
+        <a href="https://play.google.com/store/apps/details?id=space.manus.agrokuia.t20260217002954" class="btn-primary" target="_blank">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.698-2.302 2.698-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
           Google Play
         </a>
@@ -424,170 +667,291 @@
       <div class="footer-top">
         <div class="footer-brand">
           <img src="assets/logo.png" alt="AgroKuia">
-          <p data-i18n="footer_desc">Tecnologia ao serviço da agricultura angolana. Inteligência artificial para agricultores, do campo ao mercado.</p>
+          <p data-i18n="footer_desc">A primeira startup AgriTech de Angola. Inteligência artificial com dados locais, feita por angolanos para angolanos. Do campo ao mercado.</p>
         </div>
         <div class="footer-col">
           <h4 data-i18n="footer_product">Produto</h4>
           <a href="#funcionalidades" data-i18n="nav_features">Funcionalidades</a>
+          <a href="#solucoes" data-i18n="nav_solutions">Soluções</a>
           <a href="#como-funciona" data-i18n="nav_how">Como Funciona</a>
           <a href="#download" data-i18n="hero_btn_download">Descarregar</a>
         </div>
         <div class="footer-col">
           <h4 data-i18n="footer_company">Empresa</h4>
-          <a href="#sobre" data-i18n="nav_about">Sobre Nós</a>
+          <a href="#visao" data-i18n="nav_vision">Visão do CEO</a>
+          <a href="#cultura" data-i18n="culture_label">Cultura</a>
           <a href="#parceiros" data-i18n="partners_label">Parcerias</a>
-          <a href="#impacto" data-i18n="nav_impact">Impacto</a>
+          <a href="#faq">FAQ</a>
         </div>
         <div class="footer-col">
           <h4 data-i18n="footer_contact">Contacto</h4>
           <a href="mailto:contact@agrokuia.com">contact@agrokuia.com</a>
+          <a href="mailto:investors@agrokuia.com">investors@agrokuia.com</a>
           <a href="https://www.linkedin.com/company/agrokuia" target="_blank">LinkedIn</a>
-          <a href="#">Benguela, Angola</a>
+          <a href="https://www.agrokuia.com" target="_blank">www.agrokuia.com</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <span data-i18n="footer_rights">&copy; 2025 AgroKuia. Todos os direitos reservados.</span>
-        <a href="https://www.linkedin.com/company/agrokuia" target="_blank" style="color: rgba(255,255,255,0.5); text-decoration: none;">LinkedIn</a>
+        <span data-i18n="footer_rights">&copy; 2026 AgroKuia — AMAMBELE, LDA. Todos os direitos reservados.</span>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/agrokuia" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/agrokuia" target="_blank">Instagram</a>
+        </div>
       </div>
     </div>
   </footer>
 
   <script>
+    // ===== TRANSLATIONS =====
     const translations = {
       pt: {
-        nav_problem: "O Problema", nav_features: "Funcionalidades", nav_how: "Como Funciona", nav_impact: "Impacto", nav_about: "Sobre Nós", nav_contact: "Contacte-nos",
-        hero_badge: "Projecto Piloto em Benguela",
-        hero_title: 'Tecnologia ao <span class="highlight">Serviço</span> da Agricultura Angolana',
-        hero_desc: "AgroKuia utiliza inteligência artificial para ajudar agricultores a detectar doenças nas culturas, consultar previsões meteorológicas e tomar decisões informadas — tudo a partir do telemóvel.",
-        hero_btn_download: "Descarregar App", hero_btn_learn: "Saber Mais",
-        stat_farmers: "Agricultores em Angola", stat_losses: "Perdas por doenças", stat_no_access: "Sem acesso a assistência",
+        nav_problem: "O Problema", nav_solutions: "Soluções", nav_features: "Funcionalidades", nav_how: "Como Funciona", nav_vision: "Visão do CEO", nav_contact: "Departamentos", nav_download: "Descarregar",
+        hero_badge: "A Primeira Startup AgriTech de Angola",
+        hero_title: 'Dados Angolanos. Soluções Angolanas. <span class="highlight">Feita para Angola.</span>',
+        hero_desc: "AgroKuia é a primeira plataforma de inteligência artificial agrícola construída com dados locais das 18 províncias. Diagnóstico de doenças, previsão meteorológica e assistência técnica — tudo no telemóvel, mesmo sem internet.",
+        hero_btn_download: "Descarregar App", hero_btn_learn: "Ver Soluções",
+        stat_farmers: "Agricultores em Angola", stat_losses: "Perdas por doenças", stat_no_apps: "Apps AgriTech antes da AgroKuia",
+        identity_title: "App Angolano. Dados Angolanos. Feito por Angolanos.",
+        identity_desc: "A AgroKuia não é uma adaptação de uma app estrangeira. Foi construída de raiz com dados das 18 províncias, pragas locais, solos angolanos e as culturas que alimentam o nosso país. Somos a primeira e única startup AgriTech angolana com base de dados 100% local.",
+        id_flag1: "Base de dados de 18 províncias", id_flag2: "Funciona 100% offline", id_flag3: "Leitura por voz em Português", id_flag4: "Aberta a parcerias institucionais",
         problem_label: "O Desafio", problem_title: "A agricultura angolana enfrenta desafios críticos",
-        problem_subtitle: "Angola importa mais de 50% dos alimentos que consome, apesar de ter um enorme potencial agrícola. Os pequenos agricultores enfrentam barreiras que limitam a sua produtividade.",
-        problem1_title: "Perdas nas Colheitas", problem1_desc: "Doenças e pragas destroem até 40% das colheitas por falta de diagnóstico atempado e acesso a informação técnica.",
-        problem2_title: "Sem Assistência Técnica", problem2_desc: "A maioria dos agricultores não tem acesso a extensionistas rurais nem a informação sobre boas práticas agrícolas.",
-        problem3_title: "Dependência de Importações", problem3_desc: "Angola importa mais de metade dos alimentos, representando uma oportunidade enorme para aumentar a produção local.",
-        features_label: "Funcionalidades", features_title: "Tudo o que o agricultor precisa, no seu telemóvel",
-        features_subtitle: "A AgroKuia combina inteligência artificial com conhecimento agrícola local para oferecer ferramentas práticas e acessíveis.",
-        feat1_title: "Detecção de Doenças por IA", feat1_desc: "Tire uma foto da sua planta e a nossa inteligência artificial identifica doenças e pragas em segundos, com recomendações de tratamento personalizadas para o contexto angolano.",
-        feat2_title: "Previsão Meteorológica", feat2_desc: "Dados meteorológicos localizados para planear sementeiras, regas e colheitas com precisão.",
-        feat3_title: "Biblioteca Agrícola", feat3_desc: "Base de dados completa de culturas, doenças, fertilizantes e técnicas adaptadas a Angola.",
-        feat4_title: "Cotações de Mercado", feat4_desc: "Preços actualizados de produtos agrícolas para vender na melhor altura e maximizar lucros.",
-        feat5_title: "Pecuária Integrada", feat5_desc: "Gestão de gado e animais com informações sobre saúde animal, vacinação e melhores práticas.",
-        how_label: "Como Funciona", how_title: "Simples, rápido e acessível",
-        how_subtitle: "Desenhado para ser usado por qualquer agricultor, mesmo com pouca experiência tecnológica.",
-        step1_title: "Descarregue a App", step1_desc: "Disponível para Android no Google Play Store. Instalação gratuita.",
-        step2_title: "Tire uma Foto", step2_desc: "Fotografe a planta ou cultura que quer analisar directamente pela app.",
-        step3_title: "Receba o Diagnóstico", step3_desc: "A IA analisa a imagem e identifica doenças, pragas ou deficiências nutricionais.",
-        step4_title: "Aplique a Solução", step4_desc: "Siga as recomendações de tratamento adaptadas ao contexto angolano.",
-        impact_label: "Impacto", impact_title: "Transformar a agricultura angolana",
-        impact_subtitle: "A AgroKuia tem o potencial de impactar milhões de agricultores e contribuir para a segurança alimentar de Angola.",
-        impact1: "Agricultores potenciais", impact2: "Mercado agrícola angolano", impact3: "Províncias de Angola", impact4: "Redução de perdas prevista",
-        partners_label: "Parcerias", partners_title: "Construir o futuro juntos",
-        partners_subtitle: "A AgroKuia procura parceiros estratégicos para escalar o impacto em Angola. Oferecemos contratos personalizados e assistência técnica para instituições.",
-        partner1_title: "Governo & Instituições", partner1_desc: "Parcerias com INAPEM, AIPEX e governos provinciais para programas de extensão rural digital.",
-        partner2_title: "Investidores", partner2_desc: "Oportunidade de investir num mercado de $3.2B com impacto social directo em milhões de famílias.",
-        partner3_title: "Cooperativas & ONGs", partner3_desc: "Integração com cooperativas agrícolas como a UNACA e organizações de desenvolvimento rural.",
-        about_label: "Sobre Nós", about_role: "Fundador & CEO",
-        about_title: "Uma visão angolana para a agricultura do futuro",
-        about_p1: "A AgroKuia nasceu da convicção de que a tecnologia pode transformar a agricultura em Angola. Fundada por Bernardo Sebastião, a empresa combina inteligência artificial com conhecimento agrícola local para criar soluções que realmente funcionam no terreno.",
-        about_p2: "Com sede em Angola e projecto piloto em Benguela, a AgroKuia está a construir a ponte entre a inovação tecnológica e os milhões de agricultores que alimentam o país.",
-        about_quote: '"A agricultura é a espinha dorsal de Angola. Com a AgroKuia, queremos dar a cada agricultor as ferramentas para produzir mais, perder menos e viver melhor."',
+        problem_subtitle: "Angola importa mais de 50% dos alimentos que consome, apesar de ter 58 milhões de hectares de terra arável. Os pequenos agricultores — 90% do sector — enfrentam barreiras que limitam a sua produtividade.",
+        problem1_title: "Perdas nas Colheitas", problem1_desc: "Doenças e pragas destroem até 40% das colheitas por falta de diagnóstico atempado. Fonte: FAO/WFP Angola, 2024.",
+        problem2_title: "Sem Assistência Técnica", problem2_desc: "A maioria dos agricultores não tem acesso a extensionistas rurais. Angola tem menos de 1 técnico por 5.000 agricultores.",
+        problem3_title: "Importações Alimentares", problem3_desc: "Angola gasta mais de 5 mil milhões USD/ano em importações alimentares. Dinheiro que podia ficar no país. Fonte: Banco Mundial, 2024.",
+        solutions_label: "As Nossas Soluções", solutions_title: "Tecnologia que resolve problemas reais",
+        solutions_subtitle: "Cada funcionalidade da AgroKuia foi desenhada para resolver um problema específico dos agricultores angolanos, com dados e contexto local.",
+        sol1_title: "Diagnóstico por IA", sol1_desc: "Tire uma foto da planta doente. A IA identifica a doença em segundos e recomenda o tratamento correcto para o contexto angolano. Funciona offline.", sol1_tag: "Resolve: 40% de perdas",
+        sol2_title: "Previsão Meteorológica Local", sol2_desc: "Dados meteorológicos por província para planear sementeiras, regas e colheitas. Alertas de chuva, seca e temperatura extrema.", sol2_tag: "Resolve: Planeamento cego",
+        sol3_title: "Biblioteca Agrícola Angolana", sol3_desc: "Base de dados com culturas, pragas, doenças, fertilizantes e técnicas específicas de Angola. Com leitura por voz para agricultores com dificuldades de leitura.", sol3_tag: "Resolve: 85% sem assistência",
+        sol4_title: "Cotações e Marketplace", sol4_desc: "Preços de mercado actualizados e ligação directa a fornecedores de insumos. O agricultor compra o que precisa sem intermediários.", sol4_tag: "Resolve: Acesso a mercado",
+        features_label: "Funcionalidades", features_title: "Tudo o que o agricultor precisa, no telemóvel",
+        features_subtitle: "Desenhada para ser usada por qualquer agricultor, mesmo com pouca experiência tecnológica ou dificuldades de leitura.",
+        feat1_title: "Detecção de Doenças por Inteligência Artificial", feat1_desc: "Tire uma foto da sua planta e a inteligência artificial identifica doenças e pragas em segundos, com recomendações de tratamento personalizadas para o contexto angolano. Funciona completamente offline — sem necessidade de internet.",
+        feat2_title: "Leitura por Voz (TTS)", feat2_desc: "Todos os diagnósticos e recomendações são lidos em voz alta em Português. Acessível para agricultores com dificuldades de leitura.",
+        feat3_title: "Pecuária Integrada", feat3_desc: "Gestão de gado com informações sobre saúde animal, vacinação e melhores práticas adaptadas à realidade angolana.",
+        feat4_title: "Multi-plataforma", feat4_desc: "Disponível para Android, iOS e Web. Acesso a partir de qualquer dispositivo, em qualquer lugar de Angola.",
+        feat5_title: "Dashboard para Instituições", feat5_desc: "Painel de dados em tempo real para cooperativas, ONGs e governo. Mapa epidemiológico de pragas e doenças por região.",
+        how_label: "Como Funciona", how_title: "3 passos. Sem complicações.",
+        how_subtitle: "Desenhado para ser usado por qualquer agricultor, mesmo sem experiência tecnológica.",
+        step1_title: "Descarregue", step1_desc: "Disponível no Google Play Store. Instalação gratuita, sem necessidade de conta.",
+        step2_title: "Fotografe", step2_desc: "Tire uma foto da planta ou animal que quer analisar. A IA faz o resto.",
+        step3_title: "Receba e Aplique", step3_desc: "Diagnóstico instantâneo com tratamento recomendado. Lido em voz alta se preferir.",
+        step4_title: "Sem Internet? Sem Problema.", step4_desc: "Toda a base de dados está no telemóvel. Funciona 100% offline nas zonas rurais.",
+        impact_label: "Impacto", impact_title: "Números que importam",
+        impact_subtitle: "A AgroKuia tem o potencial de transformar a agricultura angolana e contribuir para a segurança alimentar do país.",
+        impact1: "Hectares de terra arável", impact2: "Mercado agrícola angolano", impact3: "Províncias cobertas", impact4: "Redução de perdas prevista",
+        ceo_label: "Visão do CEO", ceo_role: "Fundador & CEO — AgroKuia / AMAMBELE, LDA",
+        ceo_title: "Angola tem tudo para alimentar a si mesma — e ao continente",
+        ceo_q1: "Porque criou a AgroKuia?",
+        ceo_a1: "Cresci a ver a agricultura angolana com um potencial enorme e quase nenhuma ferramenta tecnológica. Temos 58 milhões de hectares de terra arável, água abundante, sol o ano todo — e mesmo assim importamos mais de metade do que comemos. A AgroKuia nasceu para mudar isso. Não com soluções importadas, mas com tecnologia feita aqui, com os nossos dados, para os nossos agricultores.",
+        ceo_q2: "Qual é a visão para os próximos anos?",
+        ceo_a2: "A AgroKuia é o primeiro passo de um ecossistema maior — o AgroX. Imagina uma plataforma onde o agricultor não só diagnostica doenças, mas acede a crédito agrícola, seguro de colheita, formação técnica, e vende directamente ao mercado. Estamos a construir a infraestrutura digital da agricultura angolana. Em 3 anos, quero que a AgroKuia esteja em todas as 18 províncias e a expandir para Moçambique e Guiné-Bissau.",
+        ceo_q3: "O que torna a AgroKuia diferente?",
+        ceo_a3: "Somos angolanos a resolver problemas angolanos. A nossa base de dados tem pragas de Benguela, solos do Huambo, culturas do Cunene. Nenhuma app importada tem isso. E funciona offline — porque sabemos que nas zonas rurais não há internet. Não estamos a copiar ninguém. Estamos a criar algo que nunca existiu em Angola.",
+        ceo_q4: "Que impacto económico pode a AgroKuia ter?",
+        ceo_a4: "Se reduzirmos as perdas agrícolas em apenas 15%, estamos a falar de centenas de milhões de dólares que ficam no bolso dos agricultores angolanos. Mas o impacto vai além: criação de emprego no sector tecnológico, redução de importações, dados para políticas públicas, e uma nova geração de jovens angolanos a ver que a agricultura pode ser moderna e rentável. A AgroKuia pode ser o catalisador da transformação agrícola de Angola.",
+        ceo_quote: '"A agricultura é a espinha dorsal de Angola. Com a AgroKuia, queremos dar a cada agricultor as ferramentas para produzir mais, perder menos e viver melhor. Não estamos apenas a construir uma app — estamos a construir o futuro da alimentação angolana."',
+        culture_label: "Cultura Empresarial", culture_title: "Os nossos valores definem quem somos",
+        culture_subtitle: "A AgroKuia / AMAMBELE, LDA opera com princípios claros que guiam cada decisão, cada linha de código e cada parceria.",
+        val1_title: "Angola Primeiro", val1_desc: "Dados angolanos, problemas angolanos, soluções angolanas. Cada funcionalidade é validada no terreno, com agricultores reais, em províncias reais.",
+        val2_title: "Impacto Social", val2_desc: "O lucro é consequência do impacto. Cada agricultor que perde menos colheita é uma família que come melhor. Medimos sucesso em vidas transformadas.",
+        val3_title: "Inovação com Propósito", val3_desc: "Usamos inteligência artificial não por ser tendência, mas porque resolve problemas reais. Tecnologia de ponta ao serviço de quem mais precisa.",
+        val4_title: "Transparência Total", val4_desc: "Emails corporativos dedicados para cada departamento. Website funcional. Dados verificáveis. Operamos com a transparência que o sector agrícola merece.",
+        val5_title: "Portas Abertas", val5_desc: "Abertos a negociações com instituições, cooperativas, ONGs e investidores em todo o território angolano. Parcerias que criam valor para todos.",
+        val6_title: "Crescimento Sustentável", val6_desc: "Crescemos com base em resultados reais, não em promessas. Cada expansão é validada por dados e impacto mensurável no terreno.",
+        partners_label: "Parcerias", partners_title: "Abertos a negociações em todo o território angolano",
+        partners_subtitle: "A AgroKuia procura parceiros estratégicos para escalar o impacto. Oferecemos contratos personalizados, integração técnica e dados em tempo real para instituições.",
+        partner1_title: "Governo & Instituições", partner1_desc: "Parcerias com INAPEM, AIPEX, MINAGRIF e governos provinciais para programas de extensão rural digital e certificação de startups.",
+        partner2_title: "Investidores", partner2_desc: "Oportunidade de investir num mercado de $3.2B com impacto social directo. Contacte investors@agrokuia.com para o nosso pitch deck.",
+        partner3_title: "Cooperativas & ONGs", partner3_desc: "Integração com cooperativas agrícolas como a UNACA e organizações de desenvolvimento rural. Licenciamento institucional disponível.",
+        dept_label: "Contacte-nos", dept_title: "Departamentos com email corporativo dedicado",
+        dept_subtitle: "A AgroKuia opera com estrutura empresarial profissional. Cada departamento tem um canal de comunicação dedicado para garantir respostas rápidas e especializadas.",
+        dept1_title: "Geral / Corporativo", dept1_desc: "Assuntos gerais e comunicação oficial",
+        dept2_title: "Investidores", dept2_desc: "Relações com investidores e pitch deck",
+        dept3_title: "Suporte Técnico", dept3_desc: "Ajuda com a aplicação e problemas técnicos",
+        dept4_title: "Informações", dept4_desc: "Informações gerais sobre a AgroKuia",
+        dept5_title: "Jurídico", dept5_desc: "Assuntos legais e contratos",
+        dept6_title: "Desenvolvimento", dept6_desc: "Equipa técnica e integrações",
+        faq_label: "Perguntas Frequentes", faq_title: "Tudo o que precisa saber",
+        faq1_q: "A AgroKuia funciona sem internet?", faq1_a: "Sim. Toda a base de dados de doenças, pragas, culturas e tratamentos está armazenada localmente no telemóvel. O diagnóstico por IA funciona 100% offline. Apenas funcionalidades como previsão meteorológica e cotações de mercado necessitam de ligação à internet.",
+        faq2_q: "A app é gratuita?", faq2_a: "Sim, a versão base é completamente gratuita. Inclui diagnóstico de doenças, biblioteca agrícola e leitura por voz. Funcionalidades premium para instituições e empresas estão disponíveis mediante licenciamento.",
+        faq3_q: "Que culturas a AgroKuia cobre?", faq3_a: "A base de dados inclui as principais culturas angolanas: milho, mandioca, feijão, batata-doce, banana, tomate, cebola, amendoim, soja, arroz, entre outras. A lista é actualizada regularmente com novas culturas e doenças.",
+        faq4_q: "Como posso fazer parceria com a AgroKuia?", faq4_a: "Contacte-nos através de contact@agrokuia.com ou investors@agrokuia.com. Estamos abertos a parcerias com instituições governamentais, cooperativas, ONGs, empresas agrícolas e investidores em todo o território angolano.",
+        faq5_q: "A AgroKuia está disponível em que províncias?", faq5_a: "A base de dados cobre as 18 províncias de Angola. O projecto piloto está a decorrer em Benguela, com expansão planeada para Huambo, Huíla e Bié em 2026-2027.",
+        faq6_q: "Que empresa está por trás da AgroKuia?", faq6_a: "A AgroKuia é desenvolvida pela AMAMBELE, LDA — empresa angolana em processo de constituição formal. A empresa opera com estrutura profissional, emails corporativos dedicados por departamento, website funcional e presença activa no LinkedIn.",
         cta_label: "Comece Agora", cta_title: "Pronto para transformar a sua agricultura?",
-        cta_desc: "Descarregue a AgroKuia gratuitamente e junte-se aos agricultores que já estão a usar inteligência artificial para proteger as suas colheitas.",
+        cta_desc: "Descarregue a AgroKuia gratuitamente e junte-se à revolução AgriTech angolana. A primeira app de inteligência artificial agrícola feita em Angola, para Angola.",
         cta_btn_contact: "Contacte-nos",
-        footer_desc: "Tecnologia ao serviço da agricultura angolana. Inteligência artificial para agricultores, do campo ao mercado.",
+        footer_desc: "A primeira startup AgriTech de Angola. Inteligência artificial com dados locais, feita por angolanos para angolanos. Do campo ao mercado.",
         footer_product: "Produto", footer_company: "Empresa", footer_contact: "Contacto",
-        footer_rights: "&copy; 2025 AgroKuia. Todos os direitos reservados."
+        footer_rights: "&copy; 2026 AgroKuia — AMAMBELE, LDA. Todos os direitos reservados."
       },
       en: {
-        nav_problem: "The Problem", nav_features: "Features", nav_how: "How It Works", nav_impact: "Impact", nav_about: "About Us", nav_contact: "Contact Us",
-        hero_badge: "Pilot Project in Benguela",
-        hero_title: 'Technology at the <span class="highlight">Service</span> of Angolan Agriculture',
-        hero_desc: "AgroKuia uses artificial intelligence to help farmers detect crop diseases, check weather forecasts, and make informed decisions — all from their mobile phone.",
-        hero_btn_download: "Download App", hero_btn_learn: "Learn More",
-        stat_farmers: "Farmers in Angola", stat_losses: "Losses from diseases", stat_no_access: "Without access to assistance",
+        nav_problem: "The Problem", nav_solutions: "Solutions", nav_features: "Features", nav_how: "How It Works", nav_vision: "CEO Vision", nav_contact: "Departments", nav_download: "Download",
+        hero_badge: "Angola's First AgriTech Startup",
+        hero_title: 'Angolan Data. Angolan Solutions. <span class="highlight">Made for Angola.</span>',
+        hero_desc: "AgroKuia is the first AI-powered agricultural platform built with local data from all 18 provinces. Disease diagnosis, weather forecasting, and technical assistance — all on your phone, even offline.",
+        hero_btn_download: "Download App", hero_btn_learn: "See Solutions",
+        stat_farmers: "Farmers in Angola", stat_losses: "Losses from diseases", stat_no_apps: "AgriTech apps before AgroKuia",
+        identity_title: "Angolan App. Angolan Data. Made by Angolans.",
+        identity_desc: "AgroKuia is not an adaptation of a foreign app. It was built from scratch with data from 18 provinces, local pests, Angolan soils, and the crops that feed our country. We are the first and only Angolan AgriTech startup with a 100% local database.",
+        id_flag1: "Database covering 18 provinces", id_flag2: "Works 100% offline", id_flag3: "Voice reading in Portuguese", id_flag4: "Open to institutional partnerships",
         problem_label: "The Challenge", problem_title: "Angolan agriculture faces critical challenges",
-        problem_subtitle: "Angola imports over 50% of the food it consumes, despite having enormous agricultural potential. Smallholder farmers face barriers that limit their productivity.",
-        problem1_title: "Crop Losses", problem1_desc: "Diseases and pests destroy up to 40% of harvests due to lack of timely diagnosis and access to technical information.",
-        problem2_title: "No Technical Assistance", problem2_desc: "Most farmers have no access to rural extension workers or information about best agricultural practices.",
-        problem3_title: "Import Dependency", problem3_desc: "Angola imports more than half its food, representing a huge opportunity to increase local production.",
+        problem_subtitle: "Angola imports over 50% of the food it consumes, despite having 58 million hectares of arable land. Smallholder farmers — 90% of the sector — face barriers that limit their productivity.",
+        problem1_title: "Crop Losses", problem1_desc: "Diseases and pests destroy up to 40% of harvests due to lack of timely diagnosis. Source: FAO/WFP Angola, 2024.",
+        problem2_title: "No Technical Assistance", problem2_desc: "Most farmers have no access to rural extension workers. Angola has less than 1 technician per 5,000 farmers.",
+        problem3_title: "Food Imports", problem3_desc: "Angola spends over $5 billion/year on food imports. Money that could stay in the country. Source: World Bank, 2024.",
+        solutions_label: "Our Solutions", solutions_title: "Technology that solves real problems",
+        solutions_subtitle: "Every AgroKuia feature was designed to solve a specific problem for Angolan farmers, with local data and context.",
+        sol1_title: "AI Diagnosis", sol1_desc: "Take a photo of the sick plant. AI identifies the disease in seconds and recommends the correct treatment for the Angolan context. Works offline.", sol1_tag: "Solves: 40% crop losses",
+        sol2_title: "Local Weather Forecast", sol2_desc: "Weather data by province to plan sowing, irrigation, and harvesting. Alerts for rain, drought, and extreme temperatures.", sol2_tag: "Solves: Blind planning",
+        sol3_title: "Angolan Agricultural Library", sol3_desc: "Database with crops, pests, diseases, fertilizers, and techniques specific to Angola. With voice reading for farmers with reading difficulties.", sol3_tag: "Solves: 85% without assistance",
+        sol4_title: "Prices & Marketplace", sol4_desc: "Updated market prices and direct connection to input suppliers. Farmers buy what they need without middlemen.", sol4_tag: "Solves: Market access",
         features_label: "Features", features_title: "Everything the farmer needs, on their phone",
-        features_subtitle: "AgroKuia combines artificial intelligence with local agricultural knowledge to offer practical and accessible tools.",
-        feat1_title: "AI Disease Detection", feat1_desc: "Take a photo of your plant and our artificial intelligence identifies diseases and pests in seconds, with treatment recommendations tailored to the Angolan context.",
-        feat2_title: "Weather Forecast", feat2_desc: "Localized weather data to plan sowing, irrigation, and harvesting with precision.",
-        feat3_title: "Agricultural Library", feat3_desc: "Complete database of crops, diseases, fertilizers, and techniques adapted to Angola.",
-        feat4_title: "Market Prices", feat4_desc: "Updated prices of agricultural products to sell at the best time and maximize profits.",
-        feat5_title: "Integrated Livestock", feat5_desc: "Cattle and animal management with information on animal health, vaccination, and best practices.",
-        how_label: "How It Works", how_title: "Simple, fast, and accessible",
-        how_subtitle: "Designed to be used by any farmer, even with little technological experience.",
-        step1_title: "Download the App", step1_desc: "Available for Android on Google Play Store. Free installation.",
-        step2_title: "Take a Photo", step2_desc: "Photograph the plant or crop you want to analyze directly through the app.",
-        step3_title: "Get the Diagnosis", step3_desc: "AI analyzes the image and identifies diseases, pests, or nutritional deficiencies.",
-        step4_title: "Apply the Solution", step4_desc: "Follow treatment recommendations adapted to the Angolan context.",
-        impact_label: "Impact", impact_title: "Transforming Angolan agriculture",
-        impact_subtitle: "AgroKuia has the potential to impact millions of farmers and contribute to Angola's food security.",
-        impact1: "Potential farmers", impact2: "Angolan agricultural market", impact3: "Provinces of Angola", impact4: "Expected loss reduction",
-        partners_label: "Partnerships", partners_title: "Building the future together",
-        partners_subtitle: "AgroKuia seeks strategic partners to scale impact in Angola. We offer customized contracts and technical assistance for institutions.",
-        partner1_title: "Government & Institutions", partner1_desc: "Partnerships with INAPEM, AIPEX, and provincial governments for digital rural extension programs.",
-        partner2_title: "Investors", partner2_desc: "Opportunity to invest in a $3.2B market with direct social impact on millions of families.",
-        partner3_title: "Cooperatives & NGOs", partner3_desc: "Integration with agricultural cooperatives like UNACA and rural development organizations.",
-        about_label: "About Us", about_role: "Founder & CEO",
-        about_title: "An Angolan vision for the agriculture of the future",
-        about_p1: "AgroKuia was born from the conviction that technology can transform agriculture in Angola. Founded by Bernardo Sebastião, the company combines artificial intelligence with local agricultural knowledge to create solutions that truly work in the field.",
-        about_p2: "Based in Angola with a pilot project in Benguela, AgroKuia is building the bridge between technological innovation and the millions of farmers who feed the country.",
-        about_quote: '"Agriculture is the backbone of Angola. With AgroKuia, we want to give every farmer the tools to produce more, lose less, and live better."',
+        features_subtitle: "Designed to be used by any farmer, even with little technological experience or reading difficulties.",
+        feat1_title: "AI Disease Detection", feat1_desc: "Take a photo of your plant and artificial intelligence identifies diseases and pests in seconds, with treatment recommendations tailored to the Angolan context. Works completely offline — no internet needed.",
+        feat2_title: "Voice Reading (TTS)", feat2_desc: "All diagnoses and recommendations are read aloud in Portuguese. Accessible for farmers with reading difficulties.",
+        feat3_title: "Integrated Livestock", feat3_desc: "Cattle management with information on animal health, vaccination, and best practices adapted to Angolan reality.",
+        feat4_title: "Multi-platform", feat4_desc: "Available for Android, iOS, and Web. Access from any device, anywhere in Angola.",
+        feat5_title: "Institutional Dashboard", feat5_desc: "Real-time data panel for cooperatives, NGOs, and government. Epidemiological map of pests and diseases by region.",
+        how_label: "How It Works", how_title: "3 steps. No complications.",
+        how_subtitle: "Designed to be used by any farmer, even without technological experience.",
+        step1_title: "Download", step1_desc: "Available on Google Play Store. Free installation, no account needed.",
+        step2_title: "Photograph", step2_desc: "Take a photo of the plant or animal you want to analyze. AI does the rest.",
+        step3_title: "Receive & Apply", step3_desc: "Instant diagnosis with recommended treatment. Read aloud if you prefer.",
+        step4_title: "No Internet? No Problem.", step4_desc: "The entire database is on your phone. Works 100% offline in rural areas.",
+        impact_label: "Impact", impact_title: "Numbers that matter",
+        impact_subtitle: "AgroKuia has the potential to transform Angolan agriculture and contribute to the country's food security.",
+        impact1: "Hectares of arable land", impact2: "Angolan agricultural market", impact3: "Provinces covered", impact4: "Expected loss reduction",
+        ceo_label: "CEO Vision", ceo_role: "Founder & CEO — AgroKuia / AMAMBELE, LDA",
+        ceo_title: "Angola has everything to feed itself — and the continent",
+        ceo_q1: "Why did you create AgroKuia?",
+        ceo_a1: "I grew up watching Angolan agriculture with enormous potential and almost no technological tools. We have 58 million hectares of arable land, abundant water, year-round sun — and yet we import more than half of what we eat. AgroKuia was born to change that. Not with imported solutions, but with technology made here, with our data, for our farmers.",
+        ceo_q2: "What is the vision for the coming years?",
+        ceo_a2: "AgroKuia is the first step of a larger ecosystem — AgroX. Imagine a platform where farmers not only diagnose diseases but access agricultural credit, crop insurance, technical training, and sell directly to market. We are building the digital infrastructure of Angolan agriculture. In 3 years, I want AgroKuia in all 18 provinces and expanding to Mozambique and Guinea-Bissau.",
+        ceo_q3: "What makes AgroKuia different?",
+        ceo_a3: "We are Angolans solving Angolan problems. Our database has pests from Benguela, soils from Huambo, crops from Cunene. No imported app has that. And it works offline — because we know there's no internet in rural areas. We're not copying anyone. We're creating something that never existed in Angola.",
+        ceo_q4: "What economic impact can AgroKuia have?",
+        ceo_a4: "If we reduce agricultural losses by just 15%, we're talking about hundreds of millions of dollars staying in Angolan farmers' pockets. But the impact goes beyond: job creation in the tech sector, reduced imports, data for public policies, and a new generation of young Angolans seeing that agriculture can be modern and profitable. AgroKuia can be the catalyst for Angola's agricultural transformation.",
+        ceo_quote: '"Agriculture is the backbone of Angola. With AgroKuia, we want to give every farmer the tools to produce more, lose less, and live better. We are not just building an app — we are building the future of Angolan food."',
+        culture_label: "Corporate Culture", culture_title: "Our values define who we are",
+        culture_subtitle: "AgroKuia / AMAMBELE, LDA operates with clear principles that guide every decision, every line of code, and every partnership.",
+        val1_title: "Angola First", val1_desc: "Angolan data, Angolan problems, Angolan solutions. Every feature is validated in the field, with real farmers, in real provinces.",
+        val2_title: "Social Impact", val2_desc: "Profit is a consequence of impact. Every farmer who loses less harvest is a family that eats better. We measure success in transformed lives.",
+        val3_title: "Innovation with Purpose", val3_desc: "We use AI not because it's trendy, but because it solves real problems. Cutting-edge technology serving those who need it most.",
+        val4_title: "Total Transparency", val4_desc: "Dedicated corporate emails for each department. Functional website. Verifiable data. We operate with the transparency the agricultural sector deserves.",
+        val5_title: "Open Doors", val5_desc: "Open to negotiations with institutions, cooperatives, NGOs, and investors across Angolan territory. Partnerships that create value for all.",
+        val6_title: "Sustainable Growth", val6_desc: "We grow based on real results, not promises. Every expansion is validated by data and measurable impact on the ground.",
+        partners_label: "Partnerships", partners_title: "Open to negotiations across Angolan territory",
+        partners_subtitle: "AgroKuia seeks strategic partners to scale impact. We offer customized contracts, technical integration, and real-time data for institutions.",
+        partner1_title: "Government & Institutions", partner1_desc: "Partnerships with INAPEM, AIPEX, MINAGRIF, and provincial governments for digital rural extension programs and startup certification.",
+        partner2_title: "Investors", partner2_desc: "Opportunity to invest in a $3.2B market with direct social impact. Contact investors@agrokuia.com for our pitch deck.",
+        partner3_title: "Cooperatives & NGOs", partner3_desc: "Integration with agricultural cooperatives like UNACA and rural development organizations. Institutional licensing available.",
+        dept_label: "Contact Us", dept_title: "Departments with dedicated corporate email",
+        dept_subtitle: "AgroKuia operates with professional corporate structure. Each department has a dedicated communication channel to ensure fast and specialized responses.",
+        dept1_title: "General / Corporate", dept1_desc: "General affairs and official communication",
+        dept2_title: "Investors", dept2_desc: "Investor relations and pitch deck",
+        dept3_title: "Technical Support", dept3_desc: "App help and technical issues",
+        dept4_title: "Information", dept4_desc: "General information about AgroKuia",
+        dept5_title: "Legal", dept5_desc: "Legal affairs and contracts",
+        dept6_title: "Development", dept6_desc: "Technical team and integrations",
+        faq_label: "FAQ", faq_title: "Everything you need to know",
+        faq1_q: "Does AgroKuia work without internet?", faq1_a: "Yes. The entire database of diseases, pests, crops, and treatments is stored locally on the phone. AI diagnosis works 100% offline. Only features like weather forecasting and market prices require an internet connection.",
+        faq2_q: "Is the app free?", faq2_a: "Yes, the base version is completely free. It includes disease diagnosis, agricultural library, and voice reading. Premium features for institutions and companies are available through licensing.",
+        faq3_q: "What crops does AgroKuia cover?", faq3_a: "The database includes major Angolan crops: corn, cassava, beans, sweet potato, banana, tomato, onion, peanut, soy, rice, among others. The list is regularly updated with new crops and diseases.",
+        faq4_q: "How can I partner with AgroKuia?", faq4_a: "Contact us at contact@agrokuia.com or investors@agrokuia.com. We are open to partnerships with government institutions, cooperatives, NGOs, agricultural companies, and investors across Angolan territory.",
+        faq5_q: "In which provinces is AgroKuia available?", faq5_a: "The database covers all 18 provinces of Angola. The pilot project is underway in Benguela, with planned expansion to Huambo, Huíla, and Bié in 2026-2027.",
+        faq6_q: "What company is behind AgroKuia?", faq6_a: "AgroKuia is developed by AMAMBELE, LDA — an Angolan company in the process of formal incorporation. The company operates with professional structure, dedicated corporate emails per department, functional website, and active LinkedIn presence.",
         cta_label: "Get Started", cta_title: "Ready to transform your agriculture?",
-        cta_desc: "Download AgroKuia for free and join the farmers who are already using artificial intelligence to protect their crops.",
+        cta_desc: "Download AgroKuia for free and join Angola's AgriTech revolution. The first AI agricultural app made in Angola, for Angola.",
         cta_btn_contact: "Contact Us",
-        footer_desc: "Technology at the service of Angolan agriculture. Artificial intelligence for farmers, from field to market.",
+        footer_desc: "Angola's first AgriTech startup. Artificial intelligence with local data, made by Angolans for Angolans. From field to market.",
         footer_product: "Product", footer_company: "Company", footer_contact: "Contact",
-        footer_rights: "&copy; 2025 AgroKuia. All rights reserved."
+        footer_rights: "&copy; 2026 AgroKuia — AMAMBELE, LDA. All rights reserved."
       },
       fr: {
-        nav_problem: "Le Problème", nav_features: "Fonctionnalités", nav_how: "Comment ça Marche", nav_impact: "Impact", nav_about: "À Propos", nav_contact: "Contactez-nous",
-        hero_badge: "Projet Pilote à Benguela",
-        hero_title: 'La Technologie au <span class="highlight">Service</span> de l\'Agriculture Angolaise',
-        hero_desc: "AgroKuia utilise l'intelligence artificielle pour aider les agriculteurs à détecter les maladies des cultures, consulter les prévisions météorologiques et prendre des décisions éclairées — le tout depuis leur téléphone portable.",
-        hero_btn_download: "Télécharger l'App", hero_btn_learn: "En Savoir Plus",
-        stat_farmers: "Agriculteurs en Angola", stat_losses: "Pertes dues aux maladies", stat_no_access: "Sans accès à l'assistance",
+        nav_problem: "Le Problème", nav_solutions: "Solutions", nav_features: "Fonctionnalités", nav_how: "Comment ça Marche", nav_vision: "Vision du PDG", nav_contact: "Départements", nav_download: "Télécharger",
+        hero_badge: "La Première Startup AgriTech d'Angola",
+        hero_title: 'Données Angolaises. Solutions Angolaises. <span class="highlight">Faite pour l\'Angola.</span>',
+        hero_desc: "AgroKuia est la première plateforme d'intelligence artificielle agricole construite avec des données locales des 18 provinces. Diagnostic de maladies, prévisions météo et assistance technique — tout sur votre téléphone, même hors ligne.",
+        hero_btn_download: "Télécharger l'App", hero_btn_learn: "Voir les Solutions",
+        stat_farmers: "Agriculteurs en Angola", stat_losses: "Pertes dues aux maladies", stat_no_apps: "Apps AgriTech avant AgroKuia",
+        identity_title: "App Angolaise. Données Angolaises. Faite par des Angolais.",
+        identity_desc: "AgroKuia n'est pas une adaptation d'une app étrangère. Elle a été construite à partir de zéro avec des données de 18 provinces, des ravageurs locaux, des sols angolais et les cultures qui nourrissent notre pays.",
+        id_flag1: "Base de données de 18 provinces", id_flag2: "Fonctionne 100% hors ligne", id_flag3: "Lecture vocale en Portugais", id_flag4: "Ouverte aux partenariats institutionnels",
         problem_label: "Le Défi", problem_title: "L'agriculture angolaise fait face à des défis critiques",
-        problem_subtitle: "L'Angola importe plus de 50% de sa nourriture, malgré un énorme potentiel agricole. Les petits agriculteurs font face à des obstacles qui limitent leur productivité.",
-        problem1_title: "Pertes de Récoltes", problem1_desc: "Les maladies et les ravageurs détruisent jusqu'à 40% des récoltes par manque de diagnostic rapide et d'accès à l'information technique.",
-        problem2_title: "Sans Assistance Technique", problem2_desc: "La majorité des agriculteurs n'ont pas accès aux agents de vulgarisation rurale ni aux informations sur les bonnes pratiques agricoles.",
-        problem3_title: "Dépendance aux Importations", problem3_desc: "L'Angola importe plus de la moitié de sa nourriture, ce qui représente une opportunité énorme pour augmenter la production locale.",
-        features_label: "Fonctionnalités", features_title: "Tout ce dont l'agriculteur a besoin, sur son téléphone",
-        features_subtitle: "AgroKuia combine l'intelligence artificielle avec les connaissances agricoles locales pour offrir des outils pratiques et accessibles.",
-        feat1_title: "Détection de Maladies par IA", feat1_desc: "Prenez une photo de votre plante et notre intelligence artificielle identifie les maladies et les ravageurs en quelques secondes, avec des recommandations de traitement adaptées au contexte angolais.",
-        feat2_title: "Prévisions Météorologiques", feat2_desc: "Données météorologiques localisées pour planifier les semis, l'irrigation et les récoltes avec précision.",
-        feat3_title: "Bibliothèque Agricole", feat3_desc: "Base de données complète de cultures, maladies, engrais et techniques adaptées à l'Angola.",
-        feat4_title: "Prix du Marché", feat4_desc: "Prix actualisés des produits agricoles pour vendre au meilleur moment et maximiser les profits.",
-        feat5_title: "Élevage Intégré", feat5_desc: "Gestion du bétail et des animaux avec des informations sur la santé animale, la vaccination et les meilleures pratiques.",
-        how_label: "Comment ça Marche", how_title: "Simple, rapide et accessible",
-        how_subtitle: "Conçu pour être utilisé par tout agriculteur, même avec peu d'expérience technologique.",
-        step1_title: "Téléchargez l'App", step1_desc: "Disponible pour Android sur Google Play Store. Installation gratuite.",
-        step2_title: "Prenez une Photo", step2_desc: "Photographiez la plante ou la culture que vous souhaitez analyser directement via l'application.",
-        step3_title: "Recevez le Diagnostic", step3_desc: "L'IA analyse l'image et identifie les maladies, ravageurs ou carences nutritionnelles.",
-        step4_title: "Appliquez la Solution", step4_desc: "Suivez les recommandations de traitement adaptées au contexte angolais.",
-        impact_label: "Impact", impact_title: "Transformer l'agriculture angolaise",
-        impact_subtitle: "AgroKuia a le potentiel d'impacter des millions d'agriculteurs et de contribuer à la sécurité alimentaire de l'Angola.",
-        impact1: "Agriculteurs potentiels", impact2: "Marché agricole angolais", impact3: "Provinces d'Angola", impact4: "Réduction des pertes prévue",
-        partners_label: "Partenariats", partners_title: "Construire l'avenir ensemble",
-        partners_subtitle: "AgroKuia recherche des partenaires stratégiques pour augmenter l'impact en Angola. Nous offrons des contrats personnalisés et une assistance technique aux institutions.",
-        partner1_title: "Gouvernement & Institutions", partner1_desc: "Partenariats avec l'INAPEM, l'AIPEX et les gouvernements provinciaux pour des programmes de vulgarisation rurale numérique.",
-        partner2_title: "Investisseurs", partner2_desc: "Opportunité d'investir dans un marché de 3,2 milliards de dollars avec un impact social direct sur des millions de familles.",
-        partner3_title: "Coopératives & ONGs", partner3_desc: "Intégration avec des coopératives agricoles comme l'UNACA et des organisations de développement rural.",
-        about_label: "À Propos", about_role: "Fondateur & PDG",
-        about_title: "Une vision angolaise pour l'agriculture du futur",
-        about_p1: "AgroKuia est née de la conviction que la technologie peut transformer l'agriculture en Angola. Fondée par Bernardo Sebastião, l'entreprise combine l'intelligence artificielle avec les connaissances agricoles locales pour créer des solutions qui fonctionnent vraiment sur le terrain.",
-        about_p2: "Basée en Angola avec un projet pilote à Benguela, AgroKuia construit le pont entre l'innovation technologique et les millions d'agriculteurs qui nourrissent le pays.",
-        about_quote: '"L\'agriculture est l\'épine dorsale de l\'Angola. Avec AgroKuia, nous voulons donner à chaque agriculteur les outils pour produire plus, perdre moins et vivre mieux."',
-        cta_label: "Commencez Maintenant", cta_title: "Prêt à transformer votre agriculture ?",
-        cta_desc: "Téléchargez AgroKuia gratuitement et rejoignez les agriculteurs qui utilisent déjà l'intelligence artificielle pour protéger leurs récoltes.",
+        problem_subtitle: "L'Angola importe plus de 50% de sa nourriture, malgré 58 millions d'hectares de terres arables. Les petits agriculteurs — 90% du secteur — font face à des obstacles.",
+        problem1_title: "Pertes de Récoltes", problem1_desc: "Maladies et ravageurs détruisent jusqu'à 40% des récoltes. Source: FAO/WFP Angola, 2024.",
+        problem2_title: "Sans Assistance Technique", problem2_desc: "La majorité des agriculteurs n'ont pas accès aux agents de vulgarisation. Moins d'1 technicien pour 5 000 agriculteurs.",
+        problem3_title: "Importations Alimentaires", problem3_desc: "L'Angola dépense plus de 5 milliards USD/an en importations alimentaires. Source: Banque Mondiale, 2024.",
+        solutions_label: "Nos Solutions", solutions_title: "Technologie qui résout des problèmes réels",
+        solutions_subtitle: "Chaque fonctionnalité d'AgroKuia a été conçue pour résoudre un problème spécifique des agriculteurs angolais.",
+        sol1_title: "Diagnostic par IA", sol1_desc: "Prenez une photo de la plante malade. L'IA identifie la maladie en secondes. Fonctionne hors ligne.", sol1_tag: "Résout: 40% de pertes",
+        sol2_title: "Prévisions Météo Locales", sol2_desc: "Données météo par province pour planifier semis, irrigation et récoltes.", sol2_tag: "Résout: Planification aveugle",
+        sol3_title: "Bibliothèque Agricole Angolaise", sol3_desc: "Base de données avec cultures, ravageurs, maladies et techniques spécifiques à l'Angola. Avec lecture vocale.", sol3_tag: "Résout: 85% sans assistance",
+        sol4_title: "Prix & Marketplace", sol4_desc: "Prix du marché actualisés et connexion directe aux fournisseurs d'intrants.", sol4_tag: "Résout: Accès au marché",
+        features_label: "Fonctionnalités", features_title: "Tout ce dont l'agriculteur a besoin",
+        features_subtitle: "Conçue pour être utilisée par tout agriculteur, même avec peu d'expérience technologique.",
+        feat1_title: "Détection de Maladies par IA", feat1_desc: "Prenez une photo et l'IA identifie maladies et ravageurs en secondes. Fonctionne 100% hors ligne.",
+        feat2_title: "Lecture Vocale (TTS)", feat2_desc: "Tous les diagnostics sont lus à voix haute en Portugais. Accessible pour les agriculteurs ayant des difficultés de lecture.",
+        feat3_title: "Élevage Intégré", feat3_desc: "Gestion du bétail avec informations sur la santé animale et les meilleures pratiques.",
+        feat4_title: "Multi-plateforme", feat4_desc: "Disponible pour Android, iOS et Web. Accès depuis n'importe quel appareil.",
+        feat5_title: "Tableau de Bord Institutionnel", feat5_desc: "Panneau de données en temps réel pour coopératives, ONGs et gouvernement.",
+        how_label: "Comment ça Marche", how_title: "3 étapes. Sans complications.",
+        how_subtitle: "Conçu pour tout agriculteur, même sans expérience technologique.",
+        step1_title: "Téléchargez", step1_desc: "Disponible sur Google Play Store. Installation gratuite.",
+        step2_title: "Photographiez", step2_desc: "Prenez une photo de la plante à analyser. L'IA fait le reste.",
+        step3_title: "Recevez et Appliquez", step3_desc: "Diagnostic instantané avec traitement recommandé. Lu à voix haute si souhaité.",
+        step4_title: "Pas d'Internet ? Pas de Problème.", step4_desc: "Toute la base de données est sur le téléphone. Fonctionne 100% hors ligne.",
+        impact_label: "Impact", impact_title: "Des chiffres qui comptent",
+        impact_subtitle: "AgroKuia a le potentiel de transformer l'agriculture angolaise.",
+        impact1: "Hectares de terres arables", impact2: "Marché agricole angolais", impact3: "Provinces couvertes", impact4: "Réduction des pertes prévue",
+        ceo_label: "Vision du PDG", ceo_role: "Fondateur & PDG — AgroKuia / AMAMBELE, LDA",
+        ceo_title: "L'Angola a tout pour se nourrir — et nourrir le continent",
+        ceo_q1: "Pourquoi avez-vous créé AgroKuia ?",
+        ceo_a1: "J'ai grandi en voyant l'agriculture angolaise avec un potentiel énorme et presque aucun outil technologique. Nous avons 58 millions d'hectares, de l'eau abondante, du soleil toute l'année — et nous importons plus de la moitié de ce que nous mangeons. AgroKuia est née pour changer cela.",
+        ceo_q2: "Quelle est la vision pour les prochaines années ?",
+        ceo_a2: "AgroKuia est la première étape d'un écosystème plus large — AgroX. Imaginez une plateforme où l'agriculteur diagnostique, accède au crédit, à l'assurance récolte, à la formation, et vend directement. Nous construisons l'infrastructure numérique de l'agriculture angolaise.",
+        ceo_q3: "Qu'est-ce qui rend AgroKuia différente ?",
+        ceo_a3: "Nous sommes des Angolais qui résolvent des problèmes angolais. Notre base de données a des ravageurs de Benguela, des sols de Huambo, des cultures de Cunene. Aucune app importée n'a cela. Et ça fonctionne hors ligne.",
+        ceo_q4: "Quel impact économique AgroKuia peut-elle avoir ?",
+        ceo_a4: "Si nous réduisons les pertes de seulement 15%, ce sont des centaines de millions de dollars qui restent dans les poches des agriculteurs. Mais l'impact va au-delà : emplois tech, réduction des importations, données pour les politiques publiques.",
+        ceo_quote: '"L\'agriculture est l\'épine dorsale de l\'Angola. Avec AgroKuia, nous voulons donner à chaque agriculteur les outils pour produire plus, perdre moins et vivre mieux."',
+        culture_label: "Culture d'Entreprise", culture_title: "Nos valeurs définissent qui nous sommes",
+        culture_subtitle: "AgroKuia / AMAMBELE, LDA opère avec des principes clairs qui guident chaque décision.",
+        val1_title: "L'Angola d'Abord", val1_desc: "Données angolaises, problèmes angolais, solutions angolaises.",
+        val2_title: "Impact Social", val2_desc: "Le profit est une conséquence de l'impact. Nous mesurons le succès en vies transformées.",
+        val3_title: "Innovation avec Objectif", val3_desc: "Nous utilisons l'IA parce qu'elle résout des problèmes réels.",
+        val4_title: "Transparence Totale", val4_desc: "Emails corporatifs dédiés par département. Site web fonctionnel. Données vérifiables.",
+        val5_title: "Portes Ouvertes", val5_desc: "Ouverts aux négociations avec institutions, coopératives et investisseurs sur tout le territoire angolais.",
+        val6_title: "Croissance Durable", val6_desc: "Nous grandissons sur la base de résultats réels, pas de promesses.",
+        partners_label: "Partenariats", partners_title: "Ouverts aux négociations sur tout le territoire angolais",
+        partners_subtitle: "AgroKuia cherche des partenaires stratégiques. Contrats personnalisés et données en temps réel pour les institutions.",
+        partner1_title: "Gouvernement & Institutions", partner1_desc: "Partenariats avec l'INAPEM, l'AIPEX, le MINAGRIF et les gouvernements provinciaux.",
+        partner2_title: "Investisseurs", partner2_desc: "Opportunité d'investir dans un marché de 3,2 milliards $. Contactez investors@agrokuia.com.",
+        partner3_title: "Coopératives & ONGs", partner3_desc: "Intégration avec coopératives agricoles et organisations de développement rural.",
+        dept_label: "Contactez-nous", dept_title: "Départements avec email corporatif dédié",
+        dept_subtitle: "AgroKuia opère avec une structure professionnelle. Chaque département a un canal de communication dédié.",
+        dept1_title: "Général / Corporatif", dept1_desc: "Affaires générales et communication officielle",
+        dept2_title: "Investisseurs", dept2_desc: "Relations investisseurs et pitch deck",
+        dept3_title: "Support Technique", dept3_desc: "Aide avec l'application",
+        dept4_title: "Informations", dept4_desc: "Informations générales sur AgroKuia",
+        dept5_title: "Juridique", dept5_desc: "Affaires juridiques et contrats",
+        dept6_title: "Développement", dept6_desc: "Équipe technique et intégrations",
+        faq_label: "FAQ", faq_title: "Tout ce que vous devez savoir",
+        faq1_q: "AgroKuia fonctionne-t-elle sans internet ?", faq1_a: "Oui. Toute la base de données est stockée localement. Le diagnostic IA fonctionne 100% hors ligne.",
+        faq2_q: "L'app est-elle gratuite ?", faq2_a: "Oui, la version de base est gratuite. Fonctionnalités premium disponibles pour les institutions.",
+        faq3_q: "Quelles cultures AgroKuia couvre-t-elle ?", faq3_a: "Maïs, manioc, haricots, patate douce, banane, tomate, oignon, arachide, soja, riz, entre autres.",
+        faq4_q: "Comment devenir partenaire ?", faq4_a: "Contactez contact@agrokuia.com ou investors@agrokuia.com.",
+        faq5_q: "Dans quelles provinces ?", faq5_a: "La base de données couvre les 18 provinces. Projet pilote à Benguela, expansion prévue en 2026-2027.",
+        faq6_q: "Quelle entreprise est derrière AgroKuia ?", faq6_a: "AMAMBELE, LDA — entreprise angolaise avec structure professionnelle et emails corporatifs dédiés.",
+        cta_label: "Commencez", cta_title: "Prêt à transformer votre agriculture ?",
+        cta_desc: "Téléchargez AgroKuia gratuitement. La première app d'IA agricole faite en Angola, pour l'Angola.",
         cta_btn_contact: "Contactez-nous",
-        footer_desc: "La technologie au service de l'agriculture angolaise. Intelligence artificielle pour les agriculteurs, du champ au marché.",
+        footer_desc: "La première startup AgriTech d'Angola. IA avec données locales, faite par des Angolais pour des Angolais.",
         footer_product: "Produit", footer_company: "Entreprise", footer_contact: "Contact",
-        footer_rights: "&copy; 2025 AgroKuia. Tous droits réservés."
+        footer_rights: "&copy; 2026 AgroKuia — AMAMBELE, LDA. Tous droits réservés."
       }
     };
 
@@ -604,19 +968,15 @@
         const key = el.getAttribute('data-i18n');
         if (t[key]) el.innerHTML = t[key];
       });
-      // Update page title
-      const titles = { pt: 'AgroKuia — Tecnologia ao Serviço da Agricultura Angolana', en: 'AgroKuia — Technology at the Service of Angolan Agriculture', fr: 'AgroKuia — La Technologie au Service de l\'Agriculture Angolaise' };
+      const titles = { pt: 'AgroKuia — A Primeira Startup AgriTech de Angola', en: 'AgroKuia — Angola\'s First AgriTech Startup', fr: 'AgroKuia — La Première Startup AgriTech d\'Angola' };
       document.title = titles[lang];
     }
 
-    // Init language
     setLang(currentLang);
 
-    // Navbar scroll effect
+    // Navbar scroll
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 20);
-    });
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 20); });
 
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -647,6 +1007,72 @@
       } else {
         navLinks.style.display = 'none';
       }
+    });
+
+    // FAQ toggle
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-answer').style.maxHeight = null;
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Counter animation on scroll
+    const counters = document.querySelectorAll('.impact-number');
+    const observerOptions = { threshold: 0.5 };
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const text = el.textContent;
+          if (el.dataset.animated) return;
+          el.dataset.animated = 'true';
+          const match = text.match(/^([\$]?)([\d.]+)([A-Za-z%+]*)/);
+          if (match) {
+            const prefix = match[1];
+            const target = parseFloat(match[2]);
+            const suffix = match[3];
+            const duration = 1500;
+            const start = performance.now();
+            const step = (now) => {
+              const progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              const current = target * eased;
+              el.textContent = prefix + (target % 1 === 0 ? Math.floor(current) : current.toFixed(1)) + suffix;
+              if (progress < 1) requestAnimationFrame(step);
+              else el.textContent = text;
+            };
+            requestAnimationFrame(step);
+          }
+          counterObserver.unobserve(el);
+        }
+      });
+    }, observerOptions);
+    counters.forEach(c => counterObserver.observe(c));
+
+    // Fade in on scroll
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.problem-card, .solution-card, .feature-card, .culture-card, .partner-card, .dept-card, .step, .impact-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      fadeObserver.observe(el);
     });
   </script>
 </body>
