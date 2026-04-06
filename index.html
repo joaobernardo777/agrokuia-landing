@@ -131,6 +131,18 @@
     .impact-number { font-size: 40px; font-weight: 900; color: var(--primary); margin-bottom: 4px; }
     .impact-label { font-size: 14px; color: var(--muted); font-weight: 500; }
 
+    /* BENGUELA PILOT */
+    .benguela { padding: 100px 24px; background: var(--foreground); color: var(--white); }
+    .benguela .section-label { color: var(--primary-light); }
+    .benguela .section-title { color: var(--white); }
+    .benguela-subtitle { font-size: 17px; color: rgba(255,255,255,0.8); max-width: 800px; line-height: 1.8; margin-bottom: 48px; }
+    .benguela-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; }
+    .benguela-stat { text-align: center; padding: 32px 20px; background: rgba(27,122,61,0.2); border: 1px solid rgba(46,204,113,0.2); border-radius: 16px; }
+    .benguela-stat .stat-number { font-size: 36px; font-weight: 900; color: var(--primary-light); margin-bottom: 4px; }
+    .benguela-stat .stat-label { font-size: 14px; color: rgba(255,255,255,0.8); font-weight: 500; }
+    .benguela-justification { font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.8; max-width: 900px; padding: 24px 28px; background: rgba(27,122,61,0.15); border-left: 4px solid var(--primary-light); border-radius: 0 12px 12px 0; }
+    .benguela-source { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 24px; font-style: italic; }
+
     /* CEO VISION */
     .ceo-vision { padding: 100px 24px; background: var(--foreground); color: var(--white); }
     .ceo-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 350px 1fr; gap: 60px; align-items: start; }
@@ -221,6 +233,7 @@
       .features-grid { grid-template-columns: 1fr; }
       .feature-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
       .steps-grid, .impact-grid { grid-template-columns: repeat(2, 1fr); }
+      .benguela-grid { grid-template-columns: repeat(2, 1fr); }
       .ceo-grid { grid-template-columns: 1fr; text-align: center; }
       .ceo-photo { max-width: 300px; margin: 0 auto; }
       .dept-grid { grid-template-columns: 1fr 1fr; }
@@ -233,6 +246,7 @@
       .section-title { font-size: 28px; }
       .cta h2 { font-size: 28px; }
       .steps-grid, .impact-grid { grid-template-columns: 1fr; }
+      .benguela-grid { grid-template-columns: 1fr; }
       .hero-stats { flex-direction: column; gap: 20px; align-items: center; }
       .dept-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; }
@@ -452,6 +466,25 @@
         <div class="impact-card"><div class="impact-number">18</div><div class="impact-label" data-i18n="impact3">Províncias cobertas</div></div>
         <div class="impact-card"><div class="impact-number">30%+</div><div class="impact-label" data-i18n="impact4">Redução de perdas prevista</div></div>
       </div>
+    </div>
+  </section>
+
+  <!-- BENGUELA PILOT -->
+  <section class="benguela" id="benguela">
+    <div class="section-inner">
+      <span class="section-label" data-i18n="benguela_label">Província Piloto</span>
+      <h2 class="section-title" data-i18n="benguela_title">Porquê Benguela?</h2>
+      <p class="benguela-subtitle" data-i18n="benguela_subtitle">Benguela foi escolhida como província piloto da AgroKuia após um estudo comparativo das 18 províncias de Angola. Os dados falam por si.</p>
+      <div class="benguela-grid">
+        <div class="benguela-stat"><div class="stat-number">2M+</div><div class="stat-label" data-i18n="beng1">Hectares de terra arável</div></div>
+        <div class="benguela-stat"><div class="stat-number">80%</div><div class="stat-label" data-i18n="beng2">Terra inexplorada disponível</div></div>
+        <div class="benguela-stat"><div class="stat-number">96K+</div><div class="stat-label" data-i18n="beng3">Famílias camponesas</div></div>
+        <div class="benguela-stat"><div class="stat-number">3.000+</div><div class="stat-label" data-i18n="beng4">Cooperativas agrícolas</div></div>
+        <div class="benguela-stat"><div class="stat-number">+93%</div><div class="stat-label" data-i18n="beng5">Crescimento produção 2024/25</div></div>
+        <div class="benguela-stat"><div class="stat-number">$4B+</div><div class="stat-label" data-i18n="beng6">Investimento Corredor do Lobito</div></div>
+      </div>
+      <div class="benguela-justification" data-i18n="benguela_text">Benguela reúne a combinação ideal: terra arável abundante com 80% por explorar, a maior densidade de cooperativas do país, e o Corredor do Lobito — o maior investimento em infraestrutura logística de África ($4B+ financiado pelos EUA, UE e AfDB). Com um crescimento de produção de +93% na campanha 2024/2025, Benguela é onde a tecnologia agrícola pode ter o maior impacto com o menor risco. A AgroKuia começa aqui para provar o modelo antes de escalar para Huambo, Huíla e as restantes 15 províncias.</div>
+      <p class="benguela-source" data-i18n="benguela_source">Fontes: Economia & Finanças (2026), VerAngola (2025), AfDB/EUA/UE, INE Angola</p>
     </div>
   </section>
 
@@ -741,6 +774,11 @@
         impact_label: "Impacto", impact_title: "Números que importam",
         impact_subtitle: "A AgroKuia tem o potencial de transformar a agricultura angolana e contribuir para a segurança alimentar do país.",
         impact1: "Hectares de terra arável", impact2: "Mercado agrícola angolano", impact3: "Províncias cobertas", impact4: "Redução de perdas prevista",
+        benguela_label: "Província Piloto", benguela_title: "Porquê Benguela?",
+        benguela_subtitle: "Benguela foi escolhida como província piloto da AgroKuia após um estudo comparativo das 18 províncias de Angola. Os dados falam por si.",
+        beng1: "Hectares de terra arável", beng2: "Terra inexplorada disponível", beng3: "Famílias camponesas", beng4: "Cooperativas agrícolas", beng5: "Crescimento produção 2024/25", beng6: "Investimento Corredor do Lobito",
+        benguela_text: "Benguela reúne a combinação ideal: terra arável abundante com 80% por explorar, a maior densidade de cooperativas do país, e o Corredor do Lobito — o maior investimento em infraestrutura logística de África ($4B+ financiado pelos EUA, UE e AfDB). Com um crescimento de produção de +93% na campanha 2024/2025, Benguela é onde a tecnologia agrícola pode ter o maior impacto com o menor risco. A AgroKuia começa aqui para provar o modelo antes de escalar para Huambo, Huíla e as restantes 15 províncias.",
+        benguela_source: "Fontes: Economia & Finanças (2026), VerAngola (2025), AfDB/EUA/UE, INE Angola",
         ceo_label: "Visão do CEO", ceo_role: "Fundador & CEO — AgroKuia / AMAMBELE, LDA",
         ceo_title: "Angola tem tudo para alimentar a si mesma — e ao continente",
         ceo_q1: "Porque criou a AgroKuia?",
@@ -824,6 +862,11 @@
         impact_label: "Impact", impact_title: "Numbers that matter",
         impact_subtitle: "AgroKuia has the potential to transform Angolan agriculture and contribute to the country's food security.",
         impact1: "Hectares of arable land", impact2: "Angolan agricultural market", impact3: "Provinces covered", impact4: "Expected loss reduction",
+        benguela_label: "Pilot Province", benguela_title: "Why Benguela?",
+        benguela_subtitle: "Benguela was chosen as AgroKuia's pilot province after a comparative study of all 18 provinces of Angola. The data speaks for itself.",
+        beng1: "Hectares of arable land", beng2: "Untapped land available", beng3: "Farming families", beng4: "Agricultural cooperatives", beng5: "Production growth 2024/25", beng6: "Lobito Corridor investment",
+        benguela_text: "Benguela combines the ideal conditions: abundant arable land with 80% untapped, the highest density of cooperatives in the country, and the Lobito Corridor — Africa's largest logistics infrastructure investment ($4B+ funded by the USA, EU, and AfDB). With production growth of +93% in the 2024/2025 season, Benguela is where agricultural technology can have the greatest impact with the lowest risk. AgroKuia starts here to prove the model before scaling to Huambo, Huíla, and the remaining 15 provinces.",
+        benguela_source: "Sources: Economia & Finanças (2026), VerAngola (2025), AfDB/USA/EU, INE Angola",
         ceo_label: "CEO Vision", ceo_role: "Founder & CEO — AgroKuia / AMAMBELE, LDA",
         ceo_title: "Angola has everything to feed itself — and the continent",
         ceo_q1: "Why did you create AgroKuia?",
@@ -907,6 +950,11 @@
         impact_label: "Impact", impact_title: "Des chiffres qui comptent",
         impact_subtitle: "AgroKuia a le potentiel de transformer l'agriculture angolaise.",
         impact1: "Hectares de terres arables", impact2: "Marché agricole angolais", impact3: "Provinces couvertes", impact4: "Réduction des pertes prévue",
+        benguela_label: "Province Pilote", benguela_title: "Pourquoi Benguela ?",
+        benguela_subtitle: "Benguela a été choisie comme province pilote d'AgroKuia après une étude comparative des 18 provinces d'Angola. Les données parlent d'elles-mêmes.",
+        beng1: "Hectares de terres arables", beng2: "Terres inexploitées disponibles", beng3: "Familles paysannes", beng4: "Coopératives agricoles", beng5: "Croissance production 2024/25", beng6: "Investissement Corridor de Lobito",
+        benguela_text: "Benguela réunit la combinaison idéale : des terres arables abondantes avec 80% inexploitées, la plus forte densité de coopératives du pays, et le Corridor de Lobito — le plus grand investissement en infrastructure logistique d'Afrique (4 milliards $+ financés par les USA, l'UE et la BAD). Avec une croissance de production de +93% en 2024/2025, Benguela est l'endroit où la technologie agricole peut avoir le plus grand impact avec le moindre risque. AgroKuia commence ici pour prouver le modèle avant de s'étendre à Huambo, Huíla et les 15 autres provinces.",
+        benguela_source: "Sources : Economia & Finanças (2026), VerAngola (2025), BAD/USA/UE, INE Angola",
         ceo_label: "Vision du PDG", ceo_role: "Fondateur & PDG — AgroKuia / AMAMBELE, LDA",
         ceo_title: "L'Angola a tout pour se nourrir — et nourrir le continent",
         ceo_q1: "Pourquoi avez-vous créé AgroKuia ?",
